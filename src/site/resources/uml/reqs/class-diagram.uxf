@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>100</x>
+      <y>150</y>
+      <w>210</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Service
+--
+-id: Long {composite}
+-name: String
+-description: String
+--
++getId(): int
++geName(): String
++getDescription(): String
++setName(name: String)
++setDescription(description: String)
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>800</x>
+      <y>590</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Rating
+--
+-id: Long {composite}
+-score: int
+--
++getScore() :int
+-setScore(score: int)
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>790</x>
+      <y>70</y>
+      <w>280</w>
+      <h>340</h>
+    </coordinates>
+    <panel_attributes>Forecast
+--
+-id: Long {composite}
+-Date: LocalDate
+-Time: LocalTime
+-temperature: int
+-humidity: float
+-wind: int
+--
++isBadWeather(): Boolean
++getId(): int
++getDate(): LocalDate
++getTime(): LocalTime
++getTemperature(): int
++getHumidity(): float
++getWind(): int
++setDate(date: LocalDate)
++setTime(time: LocalTime)
++setTemperature(temperature: int)
++setHumidity(humidity: float)
++setWind(wind: int)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>80</x>
+      <y>600</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>User
+--
+-id: Long {composite}
+-name: String
+-password: String
+--
++getId(): int
++getName(): String
++getPassword():String
++setName(name: String)
++setPassword(name: String)
++canRegister(): Boolean
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>460</x>
+      <y>440</y>
+      <w>210</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Location
+--
+-id: Long {composite}
+-city: String
+--
++getId(): int
++getCity(): String
+-setCity(city: String)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>110</x>
+      <y>300</y>
+      <w>108</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..3
+m2=0..n
+Selects</panel_attributes>
+    <additional_attributes>60;30;60;300</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>280</x>
+      <y>220</y>
+      <w>530</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1..1
+m2=0..n
+</panel_attributes>
+    <additional_attributes>30;30;510;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>530</x>
+      <y>290</y>
+      <w>280</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1..1
+m2=0..n
+</panel_attributes>
+    <additional_attributes>30;150;30;30;260;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>260</x>
+      <y>540</y>
+      <w>320</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1..n
+m2=0..n
+</panel_attributes>
+    <additional_attributes>300;30;300;140;30;140</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>260</x>
+      <y>690</y>
+      <w>560</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1..1
+m2=0..n
+</panel_attributes>
+    <additional_attributes>30;30;540;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>840</x>
+      <y>380</y>
+      <w>50</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1..1
+m2=0..n
+</panel_attributes>
+    <additional_attributes>30;30;30;210</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Note</type>
+    <coordinates>
+      <x>450</x>
+      <y>100</y>
+      <w>220</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>All classes have
+1. Default constuctors
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>1420</x>
+      <y>10</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>_:Instance_</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

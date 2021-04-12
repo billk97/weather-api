@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>11</zoom_level>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>759</x>
+      <y>110</y>
+      <w>209</w>
+      <h>187</h>
+    </coordinates>
+    <panel_attributes>Πρόγνωση
+--
+
+Ημερομηνία: Date
+Ωρα: Time
+Θερμοκρασία: Int
+Υγρασία: Float
+Wind: Int
+/κακοκαιρία: Boolean
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>143</x>
+      <y>539</y>
+      <w>209</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>Χρήστης
+--
+username: String
+password: String
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>484</x>
+      <y>627</y>
+      <w>198</w>
+      <h>132</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enumeration&gt;&gt;
+Περιγραφή Καιρού
+--
+Sunny
+Cloudy
+Rainy
+Foggy
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>462</x>
+      <y>352</y>
+      <w>209</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>Τοποθεσία
+--
+περιοχή :String
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>319</x>
+      <y>385</y>
+      <w>263</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..*
+m2=0..*</panel_attributes>
+    <additional_attributes>242;33;242;165;33;165</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>319</x>
+      <y>264</y>
+      <w>637</w>
+      <h>340</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..*
+m2=0..*
+</panel_attributes>
+    <additional_attributes>616;33;616;319;33;319</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>154</x>
+      <y>110</y>
+      <w>198</w>
+      <h>121</h>
+    </coordinates>
+    <panel_attributes>Υπηρεσία
+--
+Όνομα:String
+Περιγραφή:String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>110</x>
+      <y>198</y>
+      <w>126</w>
+      <h>362</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..3
+m2=0..*
+επιλέγει</panel_attributes>
+    <additional_attributes>66;33;66;341</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>319</x>
+      <y>99</y>
+      <w>461</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..*
+m2=1..1
+καταχωρεί&gt;
+</panel_attributes>
+    <additional_attributes>440;55;33;55</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>528</x>
+      <y>165</y>
+      <w>252</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..*
+m2=1..1</panel_attributes>
+    <additional_attributes>231;33;33;33;33;187</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>924</x>
+      <y>429</y>
+      <w>154</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>1056</x>
+      <y>407</y>
+      <w>165</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>Αξιολόγηση
+--
+Βαθμολογία : INT
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
