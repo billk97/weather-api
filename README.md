@@ -6,6 +6,12 @@
 * Εμμανουήλ Σφενδουράκης **A.M.** p3312015
 * Σώζων Λεβεντόπουλος **A.M.** p3312007
 
+### Contributors second assingment
+* Βασίλειος Κωνσταντίνου. **Α.Μ:** p3312006
+* Ιωάννης Γκουζιώκας **A.M.** p3312011
+* Γιώργος Παπανόντας **A.M.** p3312009
+
+
 ## Περιγραφή προβλήματος
 Η υπηρεσία θα προσφέρει στους χρήστες τη δυνατότητα ενημέρωσης για προγνωστικά
 καιρού για περιοχές της επικράτειας αξιοποιώντας πολλαπλές πλατφόρμες πρόγνωσης 
@@ -42,6 +48,7 @@
 * [Weather search summary  use case 4](/src/site/markdown/uc4-weather-search-summary.md)
 * [Forcast rating use case 5](/src/site/markdown/uc5-service-rating.md)
 * [update weather data use case 6](/src/site/markdown/uc6-update-weather-data.md)
+* [Microservices migration](/src/site/markdown/microservices-migration.md)
 ## Σύνδεσμοι σε διαγράμματα ροής
 * [Forecast sequence diagram](/src/site/markdown/uml/reqs/forecast-sequence-diagram.png)
 * [Forecast now sequence diagram](/src/site/markdown/uml/reqs/forecast-now.png)
@@ -67,76 +74,3 @@
 - `mvn umlet:convert -Dumlet.targetDir=src/site/markdown/uml`: παράγει αρχεία εικόνας png για όλα τα διαγράμματα που βρίσκονται στην τοποθεσία `src/site/markdown/uml`. Συστήνεται η κλήση της εντολής πριν την υποβολή μιας νέας έκδοσης διαγραμμάτων στο git repository (`git commit`). Ως αποτέλεσμα τα παραγόμενα αρχεία εικόνας των διαγραμμάτων συνοδεύουν τα πηγαία αρχεία έτσι ώστε να είναι εύκολη η πλοήγηση στην τεκμηρίωση του project  μέσω του github.  
 
 EDIT FOR NEW ASSIGMENTS
-
-
-## Migrating to microsservices
-
-The application will be split into 3 microservices. UserService, ForcastProviderService and ForecastService.
-The following schema shows the 3 microservices.
-
-
-## Forecast Service
-
-### Location Endpoint
-
-* addNewLocation **POST locations/{name}**
-
-* getLocationByName **GET locations/{name}**
-
-* getAllLocations **GET locations**
-
-### Forecasts endpoints
-
-* getCurrentForecastForeUser **GET forecasts/{name}?username=aaa**
-
-* addForecast **POST forecast/**
-
-* getNextThreeHoursForecast **GET forecasts/hours/{name}?usrname=aaa**
-
-* getNextThreeDays **GET forecasts/days/{name}?usrname=aaa**
-
-* getNextThreeDaysSummary **GET forecasts/days/summary/{name}?username=aaa**
-
-* getWarningsForToday **GET forecasts/warn/username**
-
-* getForecastByLocation **GET forecasts/location/{forecast_id}**
-
-* deleteForecast **DELETE forecasts/{forecast_id}**
-
-* getForecastRating **GET forecasts/rating/{location_id}**
-
-
-### Rating endpoints
-
-* addRatingToForecast **POST rate**
-
-* deleteRating **DELETE rate/{id}**
-
-## Forevast Provider Service
-
-* addNewForcastProvider **POST forecast_providers/{name}**
-
-* changeForcastProviderName **PUT forecast_providers/{oldName}**
-
-* getAllServices **GET forecast_providers**
-
-* getServiceByName **GET forecast_providers/{name}**
-
-* deleteProvider **DELETE forecast_providers/{name}**
-
-
-## User Service
-
-* getUser **GET users/{username}**
-
-* login **GET users/login**
-
-* register **POST users**
-
-* addLocation **POST users/location**
-
-* addForecastProviders **POST user/forecast_providers**
-
-* getLocation **GET users/location/{username}**
-
-* getForecastProviders **GET forecast_providers/{username}**

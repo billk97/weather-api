@@ -113,7 +113,6 @@ public class UserService {
         }
         user.get().addService(optionalService.get());
         userRepository.save(user.get());
-
     }
 
 }
