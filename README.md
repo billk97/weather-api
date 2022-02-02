@@ -68,9 +68,17 @@
 
 EDIT FOR NEW ASSIGMENTS
 
+
+## Migrating to microsservices
+
+The application will be split into 3 microservices. UserService, ForcastProviderService and ForecastService.
+The following schema shows the 3 microservices.
+
+
 ## Forecast Service
 
 ### Location Endpoint
+
 * addNewLocation **POST locations/{name}**
 
 * getLocationByName **GET locations/{name}**
