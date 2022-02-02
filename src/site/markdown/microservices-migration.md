@@ -3,13 +3,14 @@
 The application will be split into 3 microservices. UserService, ForcastProviderService and ForecastService.
 The following schema shows the 3 microservices.
 
+The communication between the microservices is described in the following schema.
+
 ![image](/src/site/markdown/uml/reqs/microservices-comunication.jpg)
 
 
 ### Add extra functionality
 
 * Add en enpoint to calculate the sum of the rating for a given forecastId
-* 
 
 ## Forecast Service
 
