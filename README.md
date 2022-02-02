@@ -6,6 +6,12 @@
 * Εμμανουήλ Σφενδουράκης **A.M.** p3312015
 * Σώζων Λεβεντόπουλος **A.M.** p3312007
 
+### Contributors second assingment
+* Βασίλειος Κωνσταντίνου. **Α.Μ:** p3312006
+* Ιωάννης Γκουζιώκας **A.M.** p3312011
+* Γιώργος Παπανόντας **A.M.** p3312009
+
+
 ## Περιγραφή προβλήματος
 Η υπηρεσία θα προσφέρει στους χρήστες τη δυνατότητα ενημέρωσης για προγνωστικά
 καιρού για περιοχές της επικράτειας αξιοποιώντας πολλαπλές πλατφόρμες πρόγνωσης 
@@ -42,6 +48,7 @@
 * [Weather search summary  use case 4](/src/site/markdown/uc4-weather-search-summary.md)
 * [Forcast rating use case 5](/src/site/markdown/uc5-service-rating.md)
 * [update weather data use case 6](/src/site/markdown/uc6-update-weather-data.md)
+* [Microservices migration](/src/site/markdown/microservices-migration.md)
 ## Σύνδεσμοι σε διαγράμματα ροής
 * [Forecast sequence diagram](/src/site/markdown/uml/reqs/forecast-sequence-diagram.png)
 * [Forecast now sequence diagram](/src/site/markdown/uml/reqs/forecast-now.png)
@@ -66,3 +73,4 @@
   είναι διαθέσιμα στην τοποθεσία `target/site/`
 - `mvn umlet:convert -Dumlet.targetDir=src/site/markdown/uml`: παράγει αρχεία εικόνας png για όλα τα διαγράμματα που βρίσκονται στην τοποθεσία `src/site/markdown/uml`. Συστήνεται η κλήση της εντολής πριν την υποβολή μιας νέας έκδοσης διαγραμμάτων στο git repository (`git commit`). Ως αποτέλεσμα τα παραγόμενα αρχεία εικόνας των διαγραμμάτων συνοδεύουν τα πηγαία αρχεία έτσι ώστε να είναι εύκολη η πλοήγηση στην τεκμηρίωση του project  μέσω του github.  
 
+EDIT FOR NEW ASSIGMENTS
