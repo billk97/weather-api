@@ -1,5 +1,7 @@
 ## Migrating to microsservices
 
+Link to [github docs](https://github.com/billk97/weather-api/blob/master/src/site/markdown/microservices-migration.md)
+
 The application will be split into 3 microservices. UserService, ForcastProviderService and ForecastService.
 The following schema shows the 3 microservices.
 
