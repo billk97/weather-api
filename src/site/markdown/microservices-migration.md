@@ -131,5 +131,3 @@ The communication between the microservices is described in the following schema
 * getLocation **GET users/location/{username}**
 
 * getForecastProviders **GET forecast_providers/{username}**
-
-## User-Forecast service communication
