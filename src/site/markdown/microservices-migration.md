@@ -43,15 +43,23 @@ as well as calculating and providing the total rating score.
 ### Forecasts endpoints
 
 
-| METHOD   | Resource                                     |          Request Body          | Description                               |
-|:---------|----------------------------------------------|:------------------------------:|-------------------------------------------|
-| **GET**  | /forecasts/{name}?username={username}        |               No               | returns the current forecast for the user |
-| **POST** | /forecasts                                   | [Yes](#forecasts-request-body) | creates a new forecast                    |
-| **GET**  | /forecasts/hours/{name}?username={username}  |               No               | returns the forecast for the next 3 hours |
+| METHOD     | Resource                                           |          Request Body          | Description                                                  |
+|:-----------|----------------------------------------------------|:------------------------------:|--------------------------------------------------------------|
+| **GET**    | /forecasts/{name}?username={username}              |               No               | returns the current forecast for the user                    |
+| **POST**   | /forecasts                                         | [Yes](#forecasts-request-body) | creates a new forecast                                       |
+| **GET**    | /forecasts/hours/{name}?username={username}        |               No               | returns the forecast for the next 3 hours                    |
+| **GET**    | /forecasts/days/{name}?username={username}         |               No               | returns the forecast for the next 3 days                     |
+| **GET**    | /forecasts/days/summary/{name}?username={username} |               No               | returns the forecast summary for the next 3 days             |
+| **GET**    | /forecasts/warn/{username}                         |               No               | returns the warning if one location of interest is dangerous |
+| **GET**    | /forecasts/location/{forecast_id}                  |               No               | returns the forecast for a specific location                 |
+| **DELETE** | /forecasts/{forecast_id}                           |               No               | deletes a forecast                                           |
+| **GET**    | /forecasts/rating/{location_id}                    |               No               | returns the forecast rating for a specific location          |
+| **POST**   | /rating                                            |    [Yes](#Rating-endpoints)    | adds a rating for a specific forecast                        |
 
 #### forecasts request body
+`/forecasts`
 ```json
-    {
+  {
         "localTime": "",
         "localDate": "",
         "temperature": 0,
@@ -63,24 +71,8 @@ as well as calculating and providing the total rating score.
     }
 ```
 
-
-* getNextThreeDays **GET forecasts/days/{name}?username=aaa**
-
-* getNextThreeDaysSummary **GET forecasts/days/summary/{name}?username=aaa**
-
-* getWarningsForToday **GET forecasts/warn/username**
-
-* getForecastByLocation **GET forecasts/location/{forecast_id}**
-
-* deleteForecast **DELETE forecasts/{forecast_id}**
-
-* getForecastRating **GET forecasts/rating/{location_id}**
-
-
-### Rating endpoints
-
-* addRatingToForecast **POST rate**
-
+#### Rating endpoints
+`* /rating*`
 ```json
     {
         "username": "",
