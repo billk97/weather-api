@@ -33,20 +33,23 @@ as well as calculating and providing the total rating score.
   
 ### Location Endpoint
 
-| METHOD    | Resource           |  Request Body  | Description                       |
-|:----------|--------------------|:--------------:|-----------------------------------|
-| **POST**  | /locations/{name}/ |       No       | add a new Location                |
-| **Get**   | /locations/{name}/ |       No       | returns a single location by name | 
-| **Get**   | /locations         |       No       | returns all available locations   |
+| METHOD   | Resource          |  Request Body  | Description                       |
+|:---------|-------------------|:--------------:|-----------------------------------|
+| **POST** | /locations/{name} |       No       | add a new Location                |
+| **GET**  | /locations/{name} |       No       | returns a single location by name | 
+| **GET**  | /locations        |       No       | returns all available locations   |
 
 
 ### Forecasts endpoints
 
-* getCurrentForecastForeUser **GET forecasts/{name}?username=aaa**
 
-* addForecast **POST forecast/**  
-**Request Body:** 
+| METHOD   | Resource                                     |          Request Body          | Description                               |
+|:---------|----------------------------------------------|:------------------------------:|-------------------------------------------|
+| **GET**  | /forecasts/{name}?username={username}        |               No               | returns the current forecast for the user |
+| **POST** | /forecasts                                   | [Yes](#forecasts-request-body) | creates a new forecast                    |
+| **GET**  | /forecasts/hours/{name}?username={username}  |               No               | returns the forecast for the next 3 hours |
 
+#### forecasts request body
 ```json
     {
         "localTime": "",
@@ -60,7 +63,6 @@ as well as calculating and providing the total rating score.
     }
 ```
 
-* getNextThreeHoursForecast **GET forecasts/hours/{name}?username=aaa**
 
 * getNextThreeDays **GET forecasts/days/{name}?username=aaa**
 
