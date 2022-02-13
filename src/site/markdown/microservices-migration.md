@@ -55,7 +55,7 @@ as well as calculating and providing the total rating score.
 | **DELETE** | /forecasts/{forecast_id}                           |               No               | deletes a forecast                                           |
 | **GET**    | /forecasts/rating/{location_id}                    |               No               | returns the forecast rating for a specific location          |
 | **POST**   | /rating                                            |    [Yes](#Rating-endpoints)    | adds a rating for a specific forecast                        |
-
+| **DELETE** | /rate/{rate_id}                                    |               No               | deletes a rating                                             |
 #### forecasts request body
 `/forecasts`
 ```json
@@ -82,26 +82,25 @@ as well as calculating and providing the total rating score.
     }
 ```
 
-* deleteRating **DELETE rate/{id}**
+## Forecast Provider Service
 
-## Forevast Provider Service
 
-* addNewForcastProvider **POST forecast_providers/{name}**
+| METHOD     | Resource                      |           Request Body           | Description                              |
+|:-----------|-------------------------------|:--------------------------------:|------------------------------------------|
+| **POST**   | /forecast-providers/{name}    |                No                | add a new forecast provider              |
+| **PUT**    | /forecast-providers/{oldName} | [Yes](#Rename-forecast-provider) | renames a forecast provider              | 
+| **GET**    | /forecast-providers           |                No                | returns all available forecast providers |
+| **GET**    | /forecast-providers/{name}    |                No                | returns a specific forecast providers    |
+| **DELETE** | /forecast-providers/{name}    |                No                | deletes a forecast provider              |
 
-* changeForcastProviderName **PUT forecast_providers/{oldName}**
 
+#### Rename forecast provider
+`PUT /forecast-providers/{oldName}`
 ```json
     {
         "serviceName": ""
     }
 ```
-
-* getAllServices **GET forecast_providers**
-
-* getServiceByName **GET forecast_providers/{name}**
-
-* deleteProvider **DELETE forecast_providers/{name}**
-
 
 ## User Service
 
