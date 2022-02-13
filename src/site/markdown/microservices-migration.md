@@ -10,6 +10,15 @@ The communication between the microservices is described in the following schema
 ![image](/src/site/markdown/uml/reqs/microservices-comunication.jpg)
 
 
+* User service communicates with the Service provider to get the available forecast provider services.
+Inorder to add them to the user as the preferred forecast provider
+* User service communicates with the Forecast service to get the available locations. 
+Inorder to add them to the user as the location of interest
+* Forecast service communicated with the user service in order to get the users preferred locations
+and forecast providers to create a custom prediction.
+* The forecast service communicates with the Forecast provider service to get info for all or a specific
+forecast provider in order to register/save a forecast/prediction
+
 ### Add extra functionality
 
 * Add an endpoint to calculate the sum of the rating for a given forecastId
