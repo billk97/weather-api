@@ -12,7 +12,7 @@ The communication between the microservices is described in the following schema
 
 ### Add extra functionality
 
-* Add en endpoint to calculate the sum of the rating for a given forecastId
+* Add an endpoint to calculate the sum of the rating for a given forecastId
 
 ## Forecast Service
 
