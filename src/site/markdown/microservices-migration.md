@@ -42,19 +42,20 @@ as well as calculating and providing the total rating score.
 
 ### Forecasts endpoints
 
-| METHOD     | Resource                                           |          Request Body          | Description                                                  |
-|:-----------|----------------------------------------------------|:------------------------------:|--------------------------------------------------------------|
-| **GET**    | /forecasts/{name}?username={username}              |               No               | returns the current forecast for the user                    |
-| **POST**   | /forecasts                                         | [Yes](#forecasts-request-body) | creates a new forecast                                       |
-| **GET**    | /forecasts/hours/{name}?username={username}        |               No               | returns the forecast for the next 3 hours                    |
-| **GET**    | /forecasts/days/{name}?username={username}         |               No               | returns the forecast for the next 3 days                     |
-| **GET**    | /forecasts/days/summary/{name}?username={username} |               No               | returns the forecast summary for the next 3 days             |
-| **GET**    | /forecasts/warn/{username}                         |               No               | returns the warning if one location of interest is dangerous |
-| **GET**    | /forecasts/location/{forecast_id}                  |               No               | returns the forecast for a specific location                 |
-| **DELETE** | /forecasts/{forecast_id}                           |               No               | deletes a forecast                                           |
-| **GET**    | /forecasts/rating/{location_id}                    |               No               | returns the forecast rating for a specific location          |
-| **POST**   | /rating                                            |    [Yes](#Rating-endpoints)    | adds a rating for a specific forecast                        |
-| **DELETE** | /rate/{rate_id}                                    |               No               | deletes a rating                                             |
+| METHOD     | Resource                                           |             Request Body              | Description                                                  |
+|:-----------|----------------------------------------------------|:-------------------------------------:|--------------------------------------------------------------|
+| **GET**    | /forecasts/{name}?username={username}              |                  No                   | returns the current forecast for the user                    |
+| **POST**   | /forecasts                                         |    [Yes](#forecasts-request-body)     | creates a new forecast                                       |
+| **GET**    | /forecasts/hours/{name}?username={username}        |                  No                   | returns the forecast for the next 3 hours                    |
+| **GET**    | /forecasts/days/{name}?username={username}         |                  No                   | returns the forecast for the next 3 days                     |
+| **GET**    | /forecasts/days/summary/{name}?username={username} |                  No                   | returns the forecast summary for the next 3 days             |
+| **GET**    | /forecasts/warn/{username}                         |                  No                   | returns the warning if one location of interest is dangerous |
+| **GET**    | /forecasts/location/{forecast_id}                  |                  No                   | returns the forecast for a specific location                 |
+| **DELETE** | /forecasts/{forecast_id}                           |                  No                   | deletes a forecast                                           |
+| **GET**    | /forecasts/rating/{location_id}                    |                  No                   | returns the forecast rating for a specific location          |
+| **POST**   | /rating                                            | [Yes](#Rating-endpoints-request-body) | adds a rating for a specific forecast                        |
+| **DELETE** | /rate/{rate_id}                                    |                  No                   | deletes a rating                                             |
+
 #### forecasts request body
 `/forecasts`
 ```json
@@ -70,7 +71,7 @@ as well as calculating and providing the total rating score.
     }
 ```
 
-#### Rating endpoints
+#### Rating endpoints request body
 `* /rating*`
 ```json
     {
@@ -83,16 +84,16 @@ as well as calculating and providing the total rating score.
 
 ## Forecast Provider Service
 
-| METHOD     | Resource                      |           Request Body           | Description                              |
-|:-----------|-------------------------------|:--------------------------------:|------------------------------------------|
-| **POST**   | /forecast-providers/{name}    |                No                | add a new forecast provider              |
-| **PUT**    | /forecast-providers/{oldName} | [Yes](#Rename-forecast-provider) | renames a forecast provider              | 
-| **GET**    | /forecast-providers           |                No                | returns all available forecast providers |
-| **GET**    | /forecast-providers/{name}    |                No                | returns a specific forecast providers    |
-| **DELETE** | /forecast-providers/{name}    |                No                | deletes a forecast provider              |
+| METHOD     | Resource                      |                 Request Body                  | Description                              |
+|:-----------|-------------------------------|:---------------------------------------------:|------------------------------------------|
+| **POST**   | /forecast-providers/{name}    |                      No                       | add a new forecast provider              |
+| **PUT**    | /forecast-providers/{oldName} | [Yes](#Rename-forecast-provider-request-body) | renames a forecast provider              | 
+| **GET**    | /forecast-providers           |                      No                       | returns all available forecast providers |
+| **GET**    | /forecast-providers/{name}    |                      No                       | returns a specific forecast providers    |
+| **DELETE** | /forecast-providers/{name}    |                      No                       | deletes a forecast provider              |
 
 
-#### Rename forecast provider
+#### Rename forecast provider request body
 `PUT /forecast-providers/{oldName}`
 ```json
     {
