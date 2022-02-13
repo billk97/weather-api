@@ -53,6 +53,11 @@ as well as calculating and providing the total rating score.
 | **GET**    | /forecasts/location/{forecast_id}                  |                  No                   | returns the forecast for a specific location                 |
 | **DELETE** | /forecasts/{forecast_id}                           |                  No                   | deletes a forecast                                           |
 | **GET**    | /forecasts/rating/{location_id}                    |                  No                   | returns the forecast rating for a specific location          |
+
+### Rating endpoints
+
+| METHOD     | Resource                                           |             Request Body              | Description                                                  |
+|:-----------|----------------------------------------------------|:-------------------------------------:|--------------------------------------------------------------|
 | **POST**   | /rating                                            | [Yes](#Rating-endpoints-request-body) | adds a rating for a specific forecast                        |
 | **DELETE** | /rate/{rate_id}                                    |                  No                   | deletes a rating                                             |
 
