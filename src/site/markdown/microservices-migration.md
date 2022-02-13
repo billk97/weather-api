@@ -77,7 +77,7 @@ as well as calculating and providing the total rating score.
 ```
 
 #### Rating endpoints request body
-`* /rating*`
+`/rating`
 ```json
     {
         "username": "",
@@ -136,6 +136,7 @@ in order to get informed about the weather.
 
 
 #### Users login request body
+`/users/login`
 ```json
     {
         "username": "",
@@ -144,6 +145,7 @@ in order to get informed about the weather.
 ```
 
 #### Register a new user request body
+`/users`
 ```json
 {
   "username": "",
@@ -153,6 +155,7 @@ in order to get informed about the weather.
 ```
 
 ### Add a location to a user request body
+`/users/location`
 ```json
 {
   "username": "",
@@ -162,6 +165,7 @@ in order to get informed about the weather.
 ```
 
 #### Add a forecast provider to a user request body
+`/users/forecast-providers`
 ```json
 {
   "username": "",
