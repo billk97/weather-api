@@ -33,11 +33,12 @@ as well as calculating and providing the total rating score.
   
 ### Location Endpoint
 
-* addNewLocation **POST locations/{name}**
+| METHOD    | Resource           |  Request Body  | Description                       |
+|:----------|--------------------|:--------------:|-----------------------------------|
+| **POST**  | /locations/{name}/ |       No       | add a new Location                |
+| **Get**   | /locations/{name}/ |       No       | returns a single location by name | 
+| **Get**   | /locations         |       No       | returns all available locations   |
 
-* getLocationByName **GET locations/{name}**
-
-* getAllLocations **GET locations**
 
 ### Forecasts endpoints
 
