@@ -42,7 +42,6 @@ as well as calculating and providing the total rating score.
 
 ### Forecasts endpoints
 
-
 | METHOD     | Resource                                           |          Request Body          | Description                                                  |
 |:-----------|----------------------------------------------------|:------------------------------:|--------------------------------------------------------------|
 | **GET**    | /forecasts/{name}?username={username}              |               No               | returns the current forecast for the user                    |
@@ -84,7 +83,6 @@ as well as calculating and providing the total rating score.
 
 ## Forecast Provider Service
 
-
 | METHOD     | Resource                      |           Request Body           | Description                              |
 |:-----------|-------------------------------|:--------------------------------:|------------------------------------------|
 | **POST**   | /forecast-providers/{name}    |                No                | add a new forecast provider              |
@@ -104,10 +102,18 @@ as well as calculating and providing the total rating score.
 
 ## User Service
 
-* getUser **GET users/{username}**
+| METHOD     | Resource                             |                      Request Body                      | Description                              |
+|:-----------|--------------------------------------|:------------------------------------------------------:|------------------------------------------|
+| **GET**    | /users/{username}                    |                           No                           | gets user info by username               |
+| **POST**   | /users/login                         |            [Yes](#Users-login-request-body)            | login for users                          | 
+| **POST**   | /users                               |        [Yes](#Register-a-new-user-request-body)        | registers a new user                     |
+| **POST**   | /users/location                      |     [Yes](#Add-a-location-to-a-user-request-body)      | adds a new location to the user          |
+| **POST**   | /users/forecast-providers            | [Yes](#Add-a-forecast-provider-to-a-user-request-body) | adds a new forecast provider to the user |
+| **GET**    | /users/location/{username}           |                           No                           | gets user info by username               |
+| **GET**    | /users/forecast-providers/{username} |                           No                           | gets user info by username               |
 
-* login **GET users/login**
 
+#### Users login request body
 ```json
     {
         "username": "",
@@ -115,30 +121,29 @@ as well as calculating and providing the total rating score.
     }
 ```
 
-* register **POST users**
-
+#### Register a new user request body
 ```json
-    "username": "",
-    "password": "",
-    "location": "",
+{
+  "username": "",
+  "password": "",
+  "location": ""
+}
 ```
 
-* addLocation **POST users/location**
-
+### Add a location to a user request body
 ```json
-    "username": "",
-    "password": "",
-    "location": "",
+{
+  "username": "",
+  "password": "",
+  "location": ""
+}
 ```
 
-* addForecastProviders **POST user/forecast_providers**
-
+#### Add a forecast provider to a user request body
 ```json
-    "username": "",
-    "password": "",
-    "forecastProvider": "",
+{
+  "username": "",
+  "password": "",
+  "forecastProvider": ""
+}
 ```
-
-* getLocation **GET users/location/{username}**
-
-* getForecastProviders **GET forecast_providers/{username}**
