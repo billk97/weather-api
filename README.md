@@ -1,3 +1,6 @@
+![master build passed](https://github.com/billk97/weather-api/workflows/build-test/badge.svg)
+![test passing](https://github.com/billk97/weather-api/workflows/build-test/badge.svg)
+
 # INF138 Weather app
 Η εφαρμογή αναπτύσσεται στα πλαίσια εργασίας στο μάθημα "ΠΡΟΗΓΜΕΝΕΣ ΜΕΘΟΔΟΙ ΑΝΑΠΤΥΞΗΣ ΛΟΓΙΣΜΙΚΟΥ"
 
