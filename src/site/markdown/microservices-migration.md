@@ -89,6 +89,14 @@ as well as calculating and providing the total rating score.
 
 ## Forecast Provider Service
 
+### Responsibilities
+
+* **Managing forecast providers**  
+The forecast provider service is responsible for managing (creating, deleting, renaming) the  
+forecast providers. A forecast provider is an external entity that provided forecast predictions  
+to the system.
+
+
 | METHOD     | Resource                      |                 Request Body                  | Description                              |
 |:-----------|-------------------------------|:---------------------------------------------:|------------------------------------------|
 | **POST**   | /forecast-providers/{name}    |                      No                       | add a new forecast provider              |
@@ -107,6 +115,14 @@ as well as calculating and providing the total rating score.
 ```
 
 ## User Service
+
+### Responsibilities
+
+* **Managing users**  
+  The user service is responsible for managing the systems users (creating, authorizing, editing  
+user preferences). With the temp user we describe the end user of the system that users the api   
+in order to get informed about the weather.  
+
 
 | METHOD     | Resource                             |                      Request Body                      | Description                              |
 |:-----------|--------------------------------------|:------------------------------------------------------:|------------------------------------------|
