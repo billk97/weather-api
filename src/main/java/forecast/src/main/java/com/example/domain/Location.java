@@ -1,6 +1,6 @@
 package com.example.domain;
 
-import com.example.dtos.in.NewLocationDTO;
+import com.example.dtos.in.CreateLocationDTO;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -46,7 +46,7 @@ public class Location {
         this.longitude = longitude;
     }
 
-    public Location(NewLocationDTO dto) {
+    public Location(CreateLocationDTO dto) {
         this.name = dto.locationName();
         this.latitude = dto.latitude();
         this.longitude = dto.longitude();

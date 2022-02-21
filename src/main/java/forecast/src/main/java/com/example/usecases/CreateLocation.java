@@ -1,7 +1,7 @@
 package com.example.usecases;
 
 import com.example.domain.Location;
-import com.example.dtos.in.NewLocationDTO;
+import com.example.dtos.in.CreateLocationDTO;
 import com.example.repository.LocationRepository;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -14,7 +14,7 @@ public class CreateLocation {
     private LocationRepository locationRepo;
 
     @Transactional
-    public long command(NewLocationDTO dto) {
+    public long command(CreateLocationDTO dto) {
         if(dto.locationName() == null) {
             throw new IllegalArgumentException("Location name cannot be null");
         }

@@ -2,7 +2,7 @@ package com.example.resource;
 
 
 import com.example.domain.Location;
-import com.example.dtos.in.NewLocationDTO;
+import com.example.dtos.in.CreateLocationDTO;
 import com.example.dtos.out.ObjectIdDTO;
 import com.example.repository.LocationRepository;
 import com.example.usecases.CreateLocation;
@@ -20,7 +20,7 @@ import javax.ws.rs.core.MediaType;
 /**
  * The type Location resource.
  */
-@Path("locations")
+@Path("api/locations")
 @ApplicationScoped
 public class LocationResource {
 
@@ -38,7 +38,7 @@ public class LocationResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public ObjectIdDTO addNewLocation(NewLocationDTO dto){
+    public ObjectIdDTO addNewLocation(CreateLocationDTO dto){
         return new ObjectIdDTO(createLocation.command(dto));
     }
 

@@ -4,12 +4,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import com.example.dtos.in.NewForecastDTO;
+import com.example.dtos.in.CreateForecastDTO;
 import com.example.enums.WeatherCategory;
 import java.time.Instant;
 import org.junit.jupiter.api.Test;
 
-class ForecastTest {
+class ForecastTests {
 
 
     @Test
@@ -62,7 +62,7 @@ class ForecastTest {
         Instant currentTime = Instant.now();
         int expectedWind = 1;
         Location location = new Location("athens", 0.0, 0.0);
-        NewForecastDTO dto = new NewForecastDTO(currentTime,
+        CreateForecastDTO dto = new CreateForecastDTO(currentTime,
             expectedTemperature,
             expectedHumidity,
             expectedWind,

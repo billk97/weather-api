@@ -5,7 +5,7 @@ import java.time.Instant;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public record NewForecastDTO(
+public record CreateForecastDTO(
     Instant forecastTime,
     int temperature,
     float humidity,

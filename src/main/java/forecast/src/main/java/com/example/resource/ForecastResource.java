@@ -2,7 +2,7 @@ package com.example.resource;
 
 
 import com.example.domain.Forecast;
-import com.example.dtos.in.NewForecastDTO;
+import com.example.dtos.in.CreateForecastDTO;
 import com.example.dtos.out.ObjectIdDTO;
 import com.example.repository.ForecastRepository;
 import com.example.usecases.CreateForecast;
@@ -21,8 +21,10 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * The type Forecast resource.
  */
-@Path("forecasts")
+@Path("api/forecasts")
 @ApplicationScoped
+@Consumes({MediaType.APPLICATION_JSON})
+@Produces(MediaType.APPLICATION_JSON)
 public class ForecastResource {
 
     @Inject
@@ -37,8 +39,6 @@ public class ForecastResource {
      * @return the current forecast fore user
      */
     @GET
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     @Path("{forecastId}")
     public Forecast getForecastById(@PathParam("forecastId") String forecastId) {
         if(!StringUtils.isNumeric(forecastId)) {
@@ -47,9 +47,7 @@ public class ForecastResource {
         return forecastRepo.findById(Long.valueOf(forecastId));
     }
 
-
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
     public List<Forecast> getAllForecasts() {
         return forecastRepo.findAll().stream().toList();
     }
@@ -61,12 +59,14 @@ public class ForecastResource {
      * @return the object id dto
      */
     @POST
-    @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    @Produces(MediaType.APPLICATION_JSON)
-    public ObjectIdDTO addForecast(NewForecastDTO dto){
+    public ObjectIdDTO addForecast(CreateForecastDTO dto){
         return createForecast.command(dto);
     }
 
 
+
+    // Todo get forecasts for specific location
+    // Todo delete a forecast (and its ratings)
+    // Todo get a the rating of a forecast based on the location id
 
 }

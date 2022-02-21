@@ -2,7 +2,7 @@ package com.example.usecases;
 
 import com.example.domain.Forecast;
 import com.example.domain.Location;
-import com.example.dtos.in.NewForecastDTO;
+import com.example.dtos.in.CreateForecastDTO;
 import com.example.dtos.out.ObjectIdDTO;
 import com.example.repository.ForecastRepository;
 import com.example.repository.LocationRepository;
@@ -20,7 +20,7 @@ public class CreateForecast {
 
 
     @Transactional
-    public ObjectIdDTO command(NewForecastDTO dto) {
+    public ObjectIdDTO command(CreateForecastDTO dto) {
         if(dto.forecastTime() == null) {
             throw new IllegalArgumentException("Forecast time can't be null");
         }

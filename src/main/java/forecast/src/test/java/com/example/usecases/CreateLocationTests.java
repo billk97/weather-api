@@ -3,7 +3,7 @@ package com.example.usecases;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import com.example.dtos.in.NewLocationDTO;
+import com.example.dtos.in.CreateLocationDTO;
 import com.example.repository.LocationRepository;
 import io.quarkus.test.junit.QuarkusTest;
 import javax.inject.Inject;
@@ -23,7 +23,7 @@ class CreateLocationTests {
 
     @Test
     void given_a_location_dto_with_null_name_IT_should_throw() {
-        NewLocationDTO dto = new NewLocationDTO(null, 0, 0);
+        CreateLocationDTO dto = new CreateLocationDTO(null, 0, 0);
         assertThrows(IllegalArgumentException.class, () -> {
            createLocation.command(dto);
         });
@@ -32,7 +32,7 @@ class CreateLocationTests {
     @Test
     void given_a_location_dto_IT_should_succeed() {
         String name = "athens";
-        NewLocationDTO dto = new NewLocationDTO(name, 0, 0);
+        CreateLocationDTO dto = new CreateLocationDTO(name, 0, 0);
         long locationId =  createLocation.command(dto);
         assertEquals("athens", locationRepo.findById(locationId).getName());
     }

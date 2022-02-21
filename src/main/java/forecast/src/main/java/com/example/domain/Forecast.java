@@ -1,6 +1,6 @@
 package com.example.domain;
 
-import com.example.dtos.in.NewForecastDTO;
+import com.example.dtos.in.CreateForecastDTO;
 import com.example.enums.WeatherCategory;
 import java.time.Instant;
 import java.util.Objects;
@@ -74,7 +74,7 @@ public class Forecast {
         this.location = location;
     }
 
-    public Forecast(NewForecastDTO dto, Location location) {
+    public Forecast(CreateForecastDTO dto, Location location) {
         this.isoTime = dto.forecastTime();
         this.temperature = dto.temperature();
         this.humidity = dto.humidity();

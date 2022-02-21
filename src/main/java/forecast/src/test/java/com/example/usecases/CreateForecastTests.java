@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.example.domain.Forecast;
 import com.example.domain.Location;
-import com.example.dtos.in.NewForecastDTO;
+import com.example.dtos.in.CreateForecastDTO;
 import com.example.dtos.out.ObjectIdDTO;
 import com.example.enums.WeatherCategory;
 import com.example.repository.ForecastRepository;
@@ -50,7 +50,7 @@ public class CreateForecastTests {
 
     @Test
     void given_a_dto_with_null_forecast_time_IT_should_fail() {
-        NewForecastDTO dto =  new NewForecastDTO(
+        CreateForecastDTO dto =  new CreateForecastDTO(
             null,
             1,
             1,
@@ -66,7 +66,7 @@ public class CreateForecastTests {
 
     @Test
     void given_a_dto_with_for_non_existing_location_IT_should_fail() {
-        NewForecastDTO dto =  new NewForecastDTO(
+        CreateForecastDTO dto =  new CreateForecastDTO(
             Instant.now(),
             1,
             1,
@@ -83,7 +83,7 @@ public class CreateForecastTests {
     @Test
     void given_a_valid_dto_IT_should_save_successfully() {
 
-        NewForecastDTO dto =  new NewForecastDTO(
+        CreateForecastDTO dto =  new CreateForecastDTO(
             Instant.now(),
             1,
             1,
