@@ -1,0 +1,40 @@
+package com.example.usecases;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import com.example.dtos.in.NewLocationDTO;
+import com.example.repository.LocationRepository;
+import io.quarkus.test.junit.QuarkusTest;
+import javax.inject.Inject;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
+import org.junit.jupiter.api.Test;
+
+@QuarkusTest
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
+class CreateLocationTests {
+
+    @Inject
+    private LocationRepository locationRepo;
+
+    @Inject
+    private CreateLocation createLocation;
+
+    @Test
+    void given_a_location_dto_with_null_name_IT_should_throw() {
+        NewLocationDTO dto = new NewLocationDTO(null, 0, 0);
+        assertThrows(IllegalArgumentException.class, () -> {
+           createLocation.command(dto);
+        });
+    }
+
+    @Test
+    void given_a_location_dto_IT_should_succeed() {
+        String name = "athens";
+        NewLocationDTO dto = new NewLocationDTO(name, 0, 0);
+        long locationId =  createLocation.command(dto);
+        assertEquals("athens", locationRepo.findById(locationId).getName());
+    }
+
+}

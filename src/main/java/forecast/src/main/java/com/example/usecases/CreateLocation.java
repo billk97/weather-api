@@ -15,6 +15,9 @@ public class CreateLocation {
 
     @Transactional
     public long command(NewLocationDTO dto) {
+        if(dto.locationName() == null) {
+            throw new IllegalArgumentException("Location name cannot be null");
+        }
         Location location = new Location(dto);
         locationRepo.persist(location);
         return location.getLocationId();

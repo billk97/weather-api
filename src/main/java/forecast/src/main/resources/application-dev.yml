@@ -1,2 +1,8 @@
 greeting:
   message: "dev"
+
+quarkus:
+  swagger-ui:
+    path: /api/swagger-ui
+  smallrye-openapi:
+    path: /api/swagger
