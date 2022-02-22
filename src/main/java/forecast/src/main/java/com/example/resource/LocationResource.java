@@ -9,6 +9,7 @@ import com.example.usecases.CreateLocation;
 import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -22,6 +23,8 @@ import javax.ws.rs.core.MediaType;
  */
 @Path("api/locations")
 @ApplicationScoped
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 public class LocationResource {
 
     @Inject
@@ -36,8 +39,6 @@ public class LocationResource {
      * @return the object id dto
      */
     @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public ObjectIdDTO addNewLocation(CreateLocationDTO dto){
         return new ObjectIdDTO(createLocation.command(dto));
     }
@@ -49,10 +50,13 @@ public class LocationResource {
      * @return the location object
      */
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
     @Path("{locationId}")
     public Location getLocationByName(@PathParam("locationId") String locationId){
-        return locationRepo.findById(Long.valueOf(locationId));
+        Location location = locationRepo.findById(Long.valueOf(locationId));
+        if(location == null) {
+            throw new IllegalArgumentException(String.format("Location with id: %s doesnt exist", locationId));
+        }
+        return location;
     }
 
     /**
@@ -61,7 +65,6 @@ public class LocationResource {
      * @return the list
      */
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
     public List<Location> getAllLocations(){
         return locationRepo.findAll().stream().toList();
     }
