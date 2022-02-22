@@ -40,4 +40,16 @@ class LocationResourceTests {
             .statusCode(200);
     }
 
+    @Test
+    void given_a_json_with_null_location_IT_should_fail_with_status_400() {
+        CreateLocationDTO dto = new CreateLocationDTO(null, 0,0);
+        given()
+            .contentType(ContentType.JSON)
+            .body(dto)
+            .when()
+            .post()
+            .then()
+            .statusCode(400);
+    }
+
 }
