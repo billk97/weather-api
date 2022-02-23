@@ -67,9 +67,8 @@ public class ForecastResource {
 
     @Deprecated
     @GET
-    @Path("{forecastId}")
+    @Path("current")
     public Forecast getCurrentForecastForUser(
-            @PathParam("forecastId") String forecastId,
             @QueryParam("userId") String userId) {
 
         // TODO implement this
@@ -78,9 +77,8 @@ public class ForecastResource {
 
     @Deprecated
     @GET
-    @Path("{forecastId}/hours/{numberOfHours}")
-    public Forecast getUsersForecastForTheNextHours(
-        @PathParam("forecastId") String forecastId,
+    @Path("hours/{numberOfHours}")
+    public Forecast getUsersForecastsForTheNextHours(
         @PathParam("numberOfHours") String numberOfHours,
         @QueryParam("userId") String userId) {
 
@@ -90,9 +88,8 @@ public class ForecastResource {
 
     @Deprecated
     @GET
-    @Path("{forecastId}/days/{numberOfDays}")
-    public Forecast getUsersForecastForTheNextDays(
-        @PathParam("forecastId") String forecastId,
+    @Path("days/{numberOfDays}")
+    public Forecast getUsersForecastsForTheNextDays(
         @PathParam("numberOfDays") String numberOfDays,
         @QueryParam("userId") String userId) {
         // TODO implement this
@@ -102,9 +99,8 @@ public class ForecastResource {
 
     @Deprecated
     @GET
-    @Path("{forecastId}/days/{numberOfDays}/summary")
-    public Forecast getUsersForecastSummaryForTheNextDays(
-        @PathParam("forecastId") String forecastId,
+    @Path("days/{numberOfDays}/summary")
+    public Forecast getUsersForecastsSummaryForTheNextDays(
         @PathParam("numberOfDays") String numberOfDays,
         @QueryParam("userId") String userId) {
         // TODO implement this
@@ -132,11 +128,10 @@ public class ForecastResource {
     }
     @Deprecated
     @DELETE
-    @Path("{ratingId}")
-    public Forecast deleteForecastWithId(
-        @PathParam("ratingId") String locationId) {
+    @Path("{locationId}")
+    public void deleteForecastWithId(
+        @PathParam("locationId") String locationId) {
         // TODO implement this
-        return null;
     }
 
 }

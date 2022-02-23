@@ -42,26 +42,26 @@ as well as calculating and providing the total rating score.
   
 ### Location Endpoint
 
-| METHOD   | Resource          |  Request Body  | Description                       | Needs change |
-|:---------|-------------------|:--------------:|-----------------------------------|:------------:|
-| **POST** | /locations/{name} |       No       | add a new Location                |      ❌       |
-| **GET**  | /locations/{name} |       No       | returns a single location by name |      ❌       |
-| **GET**  | /locations        |       No       | returns all available locations   |              |
+| METHOD   | Resource                |       Request Body       | Description                              |
+|:---------|-------------------------|:------------------------:|------------------------------------------|
+| **POST** | /locations/             | [Yes](#Add-new-location) | add a new Location                       |
+| **GET**  | /locations/{locationId} |            No            | returns a single location by locationId  |
+| **GET**  | /locations              |            No            | returns all available locations          |
 
 
 ### Forecasts endpoints
 
-| METHOD     | Resource                                           |             Request Body              | Description                                                  | Needs change |
-|:-----------|----------------------------------------------------|:-------------------------------------:|--------------------------------------------------------------|:------------:|
-| **GET**    | /forecasts/{name}?username={username}              |                  No                   | returns the current forecast for the user                    |              |
-| **POST**   | /forecasts                                         |    [Yes](#forecasts-request-body)     | creates a new forecast                                       |              |
-| **GET**    | /forecasts/hours/{name}?username={username}        |                  No                   | returns the forecast for the next 3 hours                    |              |
-| **GET**    | /forecasts/days/{name}?username={username}         |                  No                   | returns the forecast for the next 3 days                     |              |
-| **GET**    | /forecasts/days/summary/{name}?username={username} |                  No                   | returns the forecast summary for the next 3 days             |              |
-| **GET**    | /forecasts/warn/{username}                         |                  No                   | returns the warning if one location of interest is dangerous |              |
-| **GET**    | /forecasts/location/{forecast-id}                  |                  No                   | returns the forecast for a specific location                 |              |
-| **DELETE** | /forecasts/{forecast-id}                           |                  No                   | deletes a forecast                                           |              |
-| **GET**    | /forecasts/rating/{location-id}                    |                  No                   | returns the forecast rating for a specific location          |              |
+| METHOD     | Resource                                          |             Request Body              | Description                                                  |
+|:-----------|---------------------------------------------------|:-------------------------------------:|--------------------------------------------------------------|
+| **GET**    | /forecasts/{name}?userId={userId}                 |                  No                   | returns the current forecast for the user                    |
+| **POST**   | /forecasts                                        |    [Yes](#forecasts-request-body)     | creates a new forecast                                       |
+| **GET**    | /forecasts//hours/{numberOfHours}?userId={userId} |                  No                   | returns the forecast for the next 3 hours                    |
+| **GET**    | /forecasts/days/{numberOfDays}?userId={userId}    |                  No                   | returns the forecast for the next 3 days                     |
+| **GET**    | /forecasts/days/summary/?userId={userId}          |                  No                   | returns the forecast summary for the next 3 days             |
+| **GET**    | /forecasts/warn/?userId={userId}                  |                  No                   | returns the warning if one location of interest is dangerous |
+| **GET**    | /forecasts/location/{forecast-id}                 |                  No                   | returns the forecast for a specific location                 |
+| **DELETE** | /forecasts/{forecast-id}                          |                  No                   | deletes a forecast                                           |
+| **GET**    | /forecasts/rating/{location-id}                   |                  No                   | returns the forecast rating for a specific location          |
 
 ### Rating endpoints
 
@@ -172,6 +172,17 @@ in order to get informed about the weather.
   "location": ""
 }
 ```
+
+### Add new location
+`/locations`
+```json
+{
+  "locationName": "string",
+  "latitude": 0,
+  "longitude": 0
+}
+```
+
 
 #### Add a forecast provider to a user request body
 `/users/forecast-providers`
