@@ -1,26 +1,23 @@
 package com.example.resource;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.example.domain.Location;
 import com.example.dtos.in.CreateLocationDTO;
 import com.example.repository.LocationRepository;
-import io.quarkus.test.TestTransaction;
 import io.quarkus.test.common.http.TestHTTPEndpoint;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
-import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
-
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
-import static org.junit.jupiter.api.Assertions.*;
 
 @QuarkusTest
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
@@ -81,11 +78,27 @@ class LocationResourceTests {
     }
 
     @Test
-    void given_a_non_existing_location_id_IT_should_return_the_location() {
+    void given_a_non_existing_location_id_IT_should_throw() {
+
+        given()
+            .contentType(ContentType.JSON)
+            .pathParam("locationId", 99999)
+            .when()
+            .get("{locationId}")
+            .then()
+            .statusCode(400);
     }
 
     @Test
     void iT_should_return_all_locations() {
+        given()
+            .contentType(ContentType.JSON)
+            .when()
+            .get()
+            .then()
+            .statusCode(200)
+            .body(notNullValue())
+        ;
     }
 
 }
