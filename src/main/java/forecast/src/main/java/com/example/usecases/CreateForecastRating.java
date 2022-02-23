@@ -25,7 +25,7 @@ public class CreateForecastRating {
         }
         Rating rating = new Rating(dto, forecast);
         forecastRatingRepo.persist(rating);
-        return rating.getRatingId();
+        return rating.getId();
     }
 
 }

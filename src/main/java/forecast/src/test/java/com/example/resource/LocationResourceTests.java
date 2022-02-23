@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.example.domain.Location;
 import com.example.dtos.in.CreateLocationDTO;
+import com.example.repository.ForecastRepository;
 import com.example.repository.LocationRepository;
 import io.quarkus.test.common.http.TestHTTPEndpoint;
 import io.quarkus.test.junit.QuarkusTest;
@@ -27,17 +28,21 @@ class LocationResourceTests {
 
     @Inject
     LocationRepository locationRepo;
+    @Inject
+    ForecastRepository forecastRepository;
 
     private Location location;
 
     @BeforeEach
     void init() {
+        locationRepo.deleteAll();
         location = new Location("athens", 0,0);
         locationRepo.persist(location);
     }
 
     @AfterEach
     void tearDown() {
+        forecastRepository.deleteAll();
         locationRepo.deleteAll();
     }
 
@@ -90,7 +95,7 @@ class LocationResourceTests {
     }
 
     @Test
-    void iT_should_return_all_locations() {
+    void IT_should_return_all_locations() {
         given()
             .contentType(ContentType.JSON)
             .when()

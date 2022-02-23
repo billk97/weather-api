@@ -32,7 +32,7 @@ public class CreateForecast {
         }
         Forecast forecast = new Forecast(dto, location);
         forecastRepo.persist(forecast);
-        return new ObjectIdDTO(forecast.getForecastId());
+        return new ObjectIdDTO(forecast.getId());
     }
 
 }

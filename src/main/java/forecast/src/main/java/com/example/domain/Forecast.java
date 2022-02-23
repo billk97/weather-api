@@ -22,9 +22,9 @@ import javax.persistence.Table;
 @Table(name = "forecast")
 public class Forecast {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name = "forecast_id")
-    private long forecastId;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "id")
+    private long id;
 
     @Column(name = "iso_time")
     private Instant isoTime;
@@ -89,8 +89,8 @@ public class Forecast {
      *
      * @return the int
      */
-    public long getForecastId(){
-        return forecastId;
+    public long getId(){
+        return id;
     }
 
     /**
@@ -222,7 +222,7 @@ public class Forecast {
     @Override
     public String toString() {
         return "Forecast{" +
-            "forecastId=" + forecastId +
+            "id=" + id +
             ", isoTime=" + isoTime +
             ", temperature=" + temperature +
             ", humidity=" + humidity +
@@ -241,12 +241,12 @@ public class Forecast {
             return false;
         }
         Forecast forecast = (Forecast) o;
-        return forecastId == forecast.forecastId;
+        return id == forecast.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(forecastId);
+        return Objects.hash(id);
     }
 
     public boolean isBadWeather(){

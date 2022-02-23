@@ -10,5 +10,6 @@ quarkus:
     jdbc:
       url: jdbc:h2:mem:weather_api
   hibernate-orm:
+    sql-load-script: no-file
     database:
       generation: "drop-and-create"

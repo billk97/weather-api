@@ -61,14 +61,14 @@ as well as calculating and providing the total rating score.
 | **GET**    | /forecasts/warn/?userId={userId}                  |                  No                   | returns the warning if one location of interest is dangerous |
 | **GET**    | /forecasts/location/{forecast-id}                 |                  No                   | returns the forecast for a specific location                 |
 | **DELETE** | /forecasts/{forecast-id}                          |                  No                   | deletes a forecast                                           |
-| **GET**    | /forecasts/rating/{location-id}                   |                  No                   | returns the forecast rating for a specific location          |
 
 ### Rating endpoints
 
-| METHOD     | Resource                                           |             Request Body              | Description                                                  |
-|:-----------|----------------------------------------------------|:-------------------------------------:|--------------------------------------------------------------|
-| **POST**   | /rating                                            | [Yes](#Rating-endpoints-request-body) | adds a rating for a specific forecast                        |
-| **DELETE** | /rate/{rate_id}                                    |                  No                   | deletes a rating                                             |
+| METHOD     | Resource                 |             Request Body              | Description                                                    |
+|:-----------|--------------------------|:-------------------------------------:|----------------------------------------------------------------|
+| **POST**   | /rating                  | [Yes](#Rating-endpoints-request-body) | adds a rating for a specific forecast                          |
+| **DELETE** | /rate/{rate-id}          |                  No                   | deletes a rating                                               |
+| **GET**    | /forecasts/{location-id} |                  No                   | returns the forecast rating for a specific location            |
 
 #### forecasts request body
 `/forecasts`
@@ -89,8 +89,7 @@ as well as calculating and providing the total rating score.
 `/rating`
 ```json
     {
-        "username": "",
-        "password": "",
+        "userId": "",
         "forecastId": 0,
         "score": 0
     }

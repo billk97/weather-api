@@ -19,8 +19,8 @@ import javax.persistence.Table;
 @Table(name = "rating")
 public class Rating {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private long ratingId;
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private long id;
 
     @Column(name = "user_id")
     private long userId;
@@ -62,8 +62,8 @@ public class Rating {
      *
      * @return the rating id
      */
-    public long getRatingId() {
-        return ratingId;
+    public long getId() {
+        return id;
     }
 
     /**
