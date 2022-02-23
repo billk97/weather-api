@@ -10,11 +10,13 @@ import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import org.apache.commons.lang3.StringUtils;
 
@@ -63,10 +65,78 @@ public class ForecastResource {
         return createForecast.command(dto);
     }
 
+    @Deprecated
+    @GET
+    @Path("{forecastId}")
+    public Forecast getCurrentForecastForUser(
+            @PathParam("forecastId") String forecastId,
+            @QueryParam("userId") String userId) {
+
+        // TODO implement this
+        return null;
+    }
+
+    @Deprecated
+    @GET
+    @Path("{forecastId}/hours/{numberOfHours}")
+    public Forecast getUsersForecastForTheNextHours(
+        @PathParam("forecastId") String forecastId,
+        @PathParam("numberOfHours") String numberOfHours,
+        @QueryParam("userId") String userId) {
+
+        // TODO implement this
+        return null;
+    }
+
+    @Deprecated
+    @GET
+    @Path("{forecastId}/days/{numberOfDays}")
+    public Forecast getUsersForecastForTheNextDays(
+        @PathParam("forecastId") String forecastId,
+        @PathParam("numberOfDays") String numberOfDays,
+        @QueryParam("userId") String userId) {
+        // TODO implement this
+        return null;
+    }
 
 
-    // Todo get forecasts for specific location
-    // Todo delete a forecast (and its ratings)
-    // Todo get a the rating of a forecast based on the location id
+    @Deprecated
+    @GET
+    @Path("{forecastId}/days/{numberOfDays}/summary")
+    public Forecast getUsersForecastSummaryForTheNextDays(
+        @PathParam("forecastId") String forecastId,
+        @PathParam("numberOfDays") String numberOfDays,
+        @QueryParam("userId") String userId) {
+        // TODO implement this
+        return null;
+    }
+
+
+    @Deprecated
+    @GET
+    @Path("warn")
+    public Forecast getUsersForecastSummaryForTheNextDays(
+        @QueryParam("userId") String userId) {
+        // TODO implement this
+        return null;
+    }
+
+    @Deprecated
+    @GET
+    @Path("locations/{locationId}")
+    public Forecast getAllForecastForLocations(
+        @PathParam("locationId") String locationId,
+        @QueryParam("userId") String userId) {
+        // TODO implement this
+        return null;
+    }
+    @Deprecated
+    @DELETE
+    @Path("{ratingId}")
+    public Forecast deleteForecastWithId(
+        @PathParam("ratingId") String locationId) {
+        // TODO implement this
+        return null;
+    }
 
 }
