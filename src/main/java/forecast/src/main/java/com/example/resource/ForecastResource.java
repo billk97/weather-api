@@ -6,6 +6,7 @@ import com.example.dtos.in.CreateForecastDTO;
 import com.example.dtos.out.ObjectIdDTO;
 import com.example.repository.ForecastRepository;
 import com.example.usecases.CreateForecast;
+import com.example.usecases.GetAllForecastByLocation;
 import com.example.usecases.GetCurrentForecastForUser;
 import java.util.List;
 import java.util.Set;
@@ -37,6 +38,8 @@ public class ForecastResource {
     private CreateForecast createForecast;
     @Inject
     private GetCurrentForecastForUser getCurrentForecastForUser;
+    @Inject
+    private GetAllForecastByLocation getAllForecastByLocation;
 
     /**
      * Gets current forecast fore user.
@@ -119,15 +122,13 @@ public class ForecastResource {
         return null;
     }
 
-    @Deprecated
     @GET
     @Path("locations/{locationId}")
-    public Forecast getAllForecastForLocations(
-        @PathParam("locationId") String locationId,
-        @QueryParam("userId") String userId) {
-        // TODO implement this
-        return null;
+    public List<Forecast> getAllForecastForLocations(
+        @PathParam("locationId") String locationId){
+        return getAllForecastByLocation.query(locationId);
     }
+
     @Deprecated
     @DELETE
     @Path("{locationId}")

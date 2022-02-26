@@ -1,11 +1,10 @@
 package com.example.repository;
 
 import com.example.domain.Forecast;
+import com.example.domain.Location;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import java.time.Instant;
-import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalUnit;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,7 +13,6 @@ import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 public class ForecastRepository implements PanacheRepository<Forecast> {
-
 
     public List<Forecast> findCurrentForecastForUser(long locationId, Set<Long> servicesIds){
         System.out.println("yesterday: " + Instant.now().truncatedTo(ChronoUnit.DAYS).minus(1, ChronoUnit.DAYS));
@@ -31,5 +29,9 @@ public class ForecastRepository implements PanacheRepository<Forecast> {
             "(iso_time > :yesterday " +
             "and " +
             "iso_time < :tomorrow) ", params);
+    }
+
+    public List<Forecast> findForecastByLocation(Location location) {
+        return list("location", location);
     }
 }
