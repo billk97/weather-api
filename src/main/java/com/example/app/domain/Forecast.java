@@ -15,9 +15,9 @@ import java.util.Objects;
 @Table(name = "forecast")
 public class Forecast {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name = "forecast_id")
-    private int forecastId;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
 
     @Column(name = "local_time")
     private LocalTime localTime;
@@ -79,8 +79,8 @@ public class Forecast {
      *
      * @return the int
      */
-    public int getForecastId(){
-        return forecastId;
+    public int getId(){
+        return id;
     }
 
     /**
@@ -230,7 +230,7 @@ public class Forecast {
     @Override
     public String toString() {
         return "Forecast{" +
-                "forecastId=" + forecastId +
+                "is=" + id +
                 ", localTime=" + localTime +
                 ", localDate=" + localDate +
                 ", temperature=" + temperature +
@@ -258,7 +258,7 @@ public class Forecast {
 
     @Override
     public int hashCode() {
-        return Objects.hash(forecastId, localTime, localDate, temperature, humidity, wind, weatherCategory, service, location);
+        return Objects.hash(id, localTime, localDate, temperature, humidity, wind, weatherCategory, service, location);
     }
 
     public boolean isBadWeather(){

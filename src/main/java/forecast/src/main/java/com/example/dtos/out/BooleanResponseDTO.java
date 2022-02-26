@@ -5,7 +5,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  * The type Boolean response dto.
  */
-@XmlRootElement
 public class BooleanResponseDTO {
     private boolean response;
 
