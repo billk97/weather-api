@@ -14,6 +14,7 @@ import com.example.repository.ForecastRepository;
 import com.example.repository.LocationRepository;
 import io.quarkus.test.junit.QuarkusTest;
 import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import org.junit.jupiter.api.AfterEach;

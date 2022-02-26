@@ -4,3 +4,6 @@ quarkus:
     path: /api/swagger-ui
   smallrye-openapi:
     path: /api/swagger
+  hibernate-orm:
+    log:
+      sql: true
