@@ -16,13 +16,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up JDK 11
+    - name: Set up JDK 17
       uses: actions/setup-java@v2
       with:
-        java-version: '11'
+        java-version: '17'
         distribution: 'temurin'
         cache: maven
     - name: compilation
-      run: mvn clean compile
+      run: mvn compile quarkus:dev
     - name: Tests
-      run: mvn clean package
+      run: mvn package quarkus:test
