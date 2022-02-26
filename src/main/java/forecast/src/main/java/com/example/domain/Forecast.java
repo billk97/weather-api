@@ -42,9 +42,8 @@ public class Forecast {
     @Column(name = "weather_description")
     private WeatherCategory weatherCategory;
 
-//    @ManyToOne(fetch=FetchType.LAZY, cascade= {CascadeType.PERSIST, CascadeType.MERGE})
-//    @JoinColumn(name = "serviceId")
-//    private Service service;
+    @Column(name = "forecast_provider_id")
+    private long forecastProviderId;
 
     @ManyToOne(fetch= FetchType.LAZY)
     @JoinColumn(name = "location_id")

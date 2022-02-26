@@ -16,6 +16,7 @@ public class GlobalExceptionHandler implements ExceptionMapper<Exception> {
     private Response covertExceptionToResponse(Exception exception) {
 
         ErrorDetails errorDetails = new ErrorDetails(exception.getMessage(), exception.toString());
+        exception.printStackTrace();
 
         if(exception instanceof  IllegalArgumentException ) {
             return Response

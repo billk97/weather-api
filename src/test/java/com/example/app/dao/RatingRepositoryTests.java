@@ -159,6 +159,6 @@ public class RatingRepositoryTests {
         userRepository.save(user);
         forecastRepository.save(forecast);
         ratingRepository.save(rating);
-        assertEquals(1,ratingRepository.findByUserIdAndForecastId(user.getUserId(),forecast.getForecastId()).get().getScore());
+        assertEquals(1,ratingRepository.findByUserIdAndForecastId(user.getUserId(),forecast.getId()).get().getScore());
     }
 }

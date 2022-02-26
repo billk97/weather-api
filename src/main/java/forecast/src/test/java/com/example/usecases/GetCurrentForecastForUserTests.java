@@ -60,6 +60,16 @@ class GetCurrentForecastForUserTests {
     }
 
 
+    @Test
+    void given_a_user_with_one_location_and_one_service_IT_should_return_one_forecast(){
+
+    }
+
+    @Test
+    void given_a_user_with_one_location_and_multiple_service_IT_should_return_multiple_forecast(){
+
+    }
+
 
 
 }

@@ -35,7 +35,7 @@ class ForecastServiceTest {
     @Test
     void given_a_forecast_addition_should_succeed(){
         int forecastId = forecastService.addNewForecast(LocalTime.of(7,0), LocalDate.of(2020,9,23),30,100f,2, WeatherCategory.Cloudy,"meteo", "athens");
-        assertEquals(forecastId, forecastRepository.findOneById(forecastId).get().getForecastId());
+        assertEquals(forecastId, forecastRepository.findOneById(forecastId).get().getId());
     }
 
     @Test
