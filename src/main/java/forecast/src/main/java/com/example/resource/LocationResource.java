@@ -5,7 +5,7 @@ import com.example.domain.Location;
 import com.example.dtos.in.CreateLocationDTO;
 import com.example.dtos.out.ObjectIdDTO;
 import com.example.repository.LocationRepository;
-import com.example.usecases.CreateLocation;
+import com.example.usecases.location.CreateLocation;
 import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;

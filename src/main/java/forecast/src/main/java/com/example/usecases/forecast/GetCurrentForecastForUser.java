@@ -1,4 +1,4 @@
-package com.example.usecases;
+package com.example.usecases.forecast;
 
 
 import com.example.adapters.users.dtos.UserDTO;
@@ -31,7 +31,7 @@ public class GetCurrentForecastForUser {
         }
         UserDTO userDTO = usersPort.findUserById(userId)
             .orElseThrow(() ->
-                new IllegalArgumentExceptionWithCode("", ErrorCode.USER_NOT_FOUND)
+                new IllegalArgumentExceptionWithCode("User not found", ErrorCode.USER_NOT_FOUND)
             );
         userDTO.throwIfNotValid();
         List<Forecast>

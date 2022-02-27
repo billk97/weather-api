@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import com.example.enums.ErrorCode;
 import com.example.exceptions.IllegalArgumentExceptionWithCode;
 import com.example.repository.ForecastRepository;
-import com.example.repository.LocationRepository;
+import com.example.usecases.forecast.GetCurrentForecastForUser;
 import io.quarkus.test.junit.QuarkusTest;
 import javax.inject.Inject;
 import javax.transaction.Transactional;

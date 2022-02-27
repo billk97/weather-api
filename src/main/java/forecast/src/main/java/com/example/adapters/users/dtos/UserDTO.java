@@ -12,6 +12,12 @@ public record UserDTO(
 
 
     public void throwIfNotValid() {
+        if(locationId == 0 ) {
+            throw new IllegalArgumentExceptionWithCode(
+                "Forecast Id cannot be 0",
+                ErrorCode.INVALID_INPUT
+            );
+        }
         for(Long id : forecastProviderIds) {
             if(id == null) {
                 throw new IllegalArgumentExceptionWithCode(

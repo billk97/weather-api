@@ -1,4 +1,4 @@
-package com.example.usecases;
+package com.example.usecases.rating;
 
 import com.example.domain.Forecast;
 import com.example.domain.Rating;

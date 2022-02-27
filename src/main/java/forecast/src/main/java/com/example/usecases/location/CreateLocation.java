@@ -1,4 +1,4 @@
-package com.example.usecases;
+package com.example.usecases.location;
 
 import com.example.domain.Location;
 import com.example.dtos.in.CreateLocationDTO;
