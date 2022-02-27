@@ -4,7 +4,9 @@ import com.example.domain.Rating;
 import com.example.dtos.in.CreateForecastRatingDTO;
 import com.example.dtos.out.ObjectIdDTO;
 import com.example.usecases.CreateForecastRating;
+import com.example.usecases.DeleteRatingById;
 import com.example.usecases.GetAllRatings;
+import com.example.usecases.GetRatingById;
 import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -30,32 +32,35 @@ public class RatingResource {
     @Inject
     private GetAllRatings getAllRatings;
 
+    @Inject
+    private GetRatingById getRatingById;
+
+    @Inject
+    private DeleteRatingById deleteRatingById;
+
 
     @POST
     public ObjectIdDTO addRatingForForecast(@RequestBody CreateForecastRatingDTO dto) {
         return new ObjectIdDTO(createForecastRating.command(dto));
     }
 
-    @Deprecated
     @GET
     @Path("{ratingId}")
-    public Rating getRatingById(@PathParam("ratingId") String forecastId) {
-        // TODO implement this
-        return null;
+    public Rating getRatingById(@PathParam("ratingId") String ratingId) {
+        return getRatingById.query(ratingId);
     }
-
 
     @GET
     public List<Rating> getAllRatings() {
         return getAllRatings.query();
     }
 
-    @Deprecated
+
     @DELETE
     @Path("{ratingId}")
     public void deleteRatingWithId(
-        @PathParam("ratingId") String locationId) {
-        // TODO implement this
+        @PathParam("ratingId") String ratingId) {
+        deleteRatingById.command(ratingId);
     }
 
 
