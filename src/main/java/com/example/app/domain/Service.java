@@ -13,7 +13,7 @@ import java.util.Objects;
 public class Service {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="service_id")
     private int serviceId;
 

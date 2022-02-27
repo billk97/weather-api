@@ -27,7 +27,7 @@ public class RatingResourceTest extends ResourceTest {
     @Test
     public void given_valid_credentials_and_ForecastId_rating_should_be_added_successfully(){
         forecastRepository = new ForecastRepository();
-        int forecastId = forecastRepository.findAll().get(0).getForecastId();
+        int forecastId = forecastRepository.findAll().get(0).getId();
         ForecastRatingDTO ratingDTO = new ForecastRatingDTO("Bill", "password",
                 forecastId,5);
         Response response = target("rate").request().post(Entity.entity(ratingDTO, MediaType.APPLICATION_JSON));

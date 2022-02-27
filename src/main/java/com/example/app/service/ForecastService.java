@@ -55,8 +55,8 @@ public class ForecastService {
         Forecast forecast = new Forecast(localTime, localDate, temperature,
                 humidity,wind,weatherCategory,service.get(), location.get());
         forecastRepository.save(forecast);
-        System.out.println(forecast.getForecastId());
-        return forecast.getForecastId();
+        System.out.println(forecast.getId());
+        return forecast.getId();
     }
 
     /**

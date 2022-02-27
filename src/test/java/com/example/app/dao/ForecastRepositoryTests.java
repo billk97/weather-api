@@ -45,7 +45,7 @@ class ForecastRepositoryTests {
         Forecast forecast = new Forecast(LocalTime.of(6,0), LocalDate.of(2020,11,23),30,100f,2, WeatherCategory.Cloudy,service, location);
         forecastRepository.save(forecast);
 
-        assertEquals(Optional.of(forecast),forecastRepository.findOneById(forecast.getForecastId()));
+        assertEquals(Optional.of(forecast),forecastRepository.findOneById(forecast.getId()));
     }
 
     @Test
@@ -53,10 +53,10 @@ class ForecastRepositoryTests {
         Forecast forecast = new Forecast(LocalTime.of(6,0), LocalDate.of(2020,11,23),30,100f,2, WeatherCategory.Cloudy,service, location);
         forecastRepository.save(forecast);
 
-        assertEquals(Optional.of(forecast),forecastRepository.findOneById(forecast.getForecastId()));
+        assertEquals(Optional.of(forecast),forecastRepository.findOneById(forecast.getId()));
         forecastRepository.delete(forecast);
 
-        assertEquals(Optional.empty(), forecastRepository.findOneById(forecast.getForecastId()));
+        assertEquals(Optional.empty(), forecastRepository.findOneById(forecast.getId()));
 
     }
 

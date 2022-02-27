@@ -31,14 +31,14 @@ class RatingServiceTest {
 
     @Test
     void given_a_valid_username_forecastId_rating_should_succeed(){
-        int forecastId = forecastRepository.findAll().get(0).getForecastId();
+        int forecastId = forecastRepository.findAll().get(0).getId();
         int ratingId = ratingService.addRatingToForecast(5, "Bill", forecastId);
         assertTrue(ratingRepository.findById(ratingId).isPresent()); 
     }
 
     @Test
     void given_a_invalid_username_forecastId_rating_should_succeed(){
-        int forecastId = forecastRepository.findAll().get(0).getForecastId();
+        int forecastId = forecastRepository.findAll().get(0).getId();
         assertThrows(IllegalArgumentException.class, ()->{
             ratingService.addRatingToForecast(5, "Bidddll", forecastId);
         });
