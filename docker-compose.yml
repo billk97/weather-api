@@ -6,7 +6,7 @@ services:
     image: mysql:8.0.27
     restart: always
     environment:
-      MYSQL_DATABASE: dev_webchat
+      MYSQL_DATABASE: weather_api
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: webchat
       MYSQL_PASSWORD: root
