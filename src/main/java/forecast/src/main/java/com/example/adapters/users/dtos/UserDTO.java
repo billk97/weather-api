@@ -1,4 +1,4 @@
-package com.example.adapters.users.dtos;
+package forecast.src.main.java.com.example.adapters.users.dtos;
 
 import com.example.enums.ErrorCode;
 import com.example.exceptions.IllegalArgumentExceptionWithCode;
