@@ -4,6 +4,8 @@ import com.example.domain.Rating;
 import com.example.dtos.in.CreateForecastRatingDTO;
 import com.example.dtos.out.ObjectIdDTO;
 import com.example.usecases.CreateForecastRating;
+import com.example.usecases.GetAllRatings;
+import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -25,6 +27,9 @@ public class RatingResource {
     @Inject
     private CreateForecastRating createForecastRating;
 
+    @Inject
+    private GetAllRatings getAllRatings;
+
 
     @POST
     public ObjectIdDTO addRatingForForecast(@RequestBody CreateForecastRatingDTO dto) {
@@ -40,11 +45,9 @@ public class RatingResource {
     }
 
 
-    @Deprecated
     @GET
-    public Rating getAllRatings() {
-        // TODO implement this
-        return null;
+    public List<Rating> getAllRatings() {
+        return getAllRatings.query();
     }
 
     @Deprecated
