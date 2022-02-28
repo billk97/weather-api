@@ -22,7 +22,7 @@ public class GetUsersForecastForTheNextDays {
     private UserPort userPort;
 
     public List<Forecast> query(String userId, String numberOfDays) {
-        if(!StringUtils.isNumeric(userId) || !StringUtils.isNumeric(userId)) {
+        if(!StringUtils.isNumeric(userId) || !StringUtils.isNumeric(numberOfDays)) {
             throw new IllegalArgumentExceptionWithCode(
                 String.format("Forecast with id: %s not found", userId),
                 ErrorCode.INVALID_INPUT

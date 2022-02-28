@@ -41,7 +41,7 @@ public class ForecastRepository implements PanacheRepository<Forecast> {
         params.put("until", Instant.now().truncatedTo(ChronoUnit.DAYS).plus(numberOfDays, ChronoUnit.DAYS));
         return list("location_id = :locationId " +
             "and " +
-            "forecast_provider_id in (:serviceIds) " +
+            "forecast_provider_id in (:forecastProviderIds) " +
             "and " +
             "(iso_time > :yesterday " +
             "and " +
@@ -56,7 +56,7 @@ public class ForecastRepository implements PanacheRepository<Forecast> {
         params.put("until", Instant.now().truncatedTo(ChronoUnit.DAYS).plus(numberOfHours, ChronoUnit.HOURS));
         return list("location_id = :locationId " +
             "and " +
-            "forecast_provider_id in (:serviceIds) " +
+            "forecast_provider_id in (:forecastProviderIds) " +
             "and " +
             "(iso_time >= :now " +
             "and " +
