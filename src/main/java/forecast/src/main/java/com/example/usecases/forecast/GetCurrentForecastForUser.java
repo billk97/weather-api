@@ -37,7 +37,6 @@ public class GetCurrentForecastForUser {
         userDTO.throwIfNotValid();
         List<Forecast>
             forecasts = forecastRepo.findCurrentForecastForUser(userDTO.locationId(), userDTO.forecastProviderIds());
-        // we need to return one forecast from each forecast provider the user selected
         return forecasts;
     }
 

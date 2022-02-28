@@ -1,6 +1,8 @@
 package com.example.usecases;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.any;
 
 import com.example.adapters.users.dtos.UserDTO;
 import com.example.adapters.users.ports.UserPort;
@@ -12,12 +14,9 @@ import com.example.exceptions.IllegalArgumentExceptionWithCode;
 import com.example.repository.ForecastRepository;
 import com.example.repository.LocationRepository;
 import com.example.usecases.forecast.GetCurrentForecastForUser;
-import io.quarkus.test.Mock;
 import io.quarkus.test.junit.QuarkusTest;
 import io.quarkus.test.junit.mockito.InjectMock;
 import java.time.Instant;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -29,8 +28,6 @@ import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-
-import static org.mockito.ArgumentMatchers.any;
 
 @QuarkusTest
 @Transactional
@@ -128,7 +125,6 @@ class GetCurrentForecastForUserTests {
 
     @Test
     void given_a_user_with_one_location_and_one_service_IT_should_return_one_forecast(){
-
 
         Location location = new Location("mexico", 1.0, 1.0);
         locationRepo.persist(location);
