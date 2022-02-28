@@ -53,7 +53,7 @@ public class ForecastRepository implements PanacheRepository<Forecast> {
         params.put("locationId", locationId);
         params.put("forecastProviderIds", forecastProviderIds);
         params.put("now", Instant.now());
-        params.put("until", Instant.now().truncatedTo(ChronoUnit.DAYS).plus(numberOfHours, ChronoUnit.HOURS));
+        params.put("until", Instant.now().plus(numberOfHours, ChronoUnit.HOURS));
         return list("location_id = :locationId " +
             "and " +
             "forecast_provider_id in (:forecastProviderIds) " +
