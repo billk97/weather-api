@@ -17,7 +17,7 @@ public class GetUsersForecastForTheNextDaysSummary {
         List<ForecastSummaryDTO> forecastSummaries = new ArrayList<>();
         List<Forecast> forecasts = getUsersForecastForTheNextDays.query(userId, numberOfDays);
         for(Forecast f : forecasts) {
-            new ForecastSummaryDTO(f.getLocation().getName(), f.getWeatherCategory(), f.getIsoTime());
+            forecastSummaries.add(new ForecastSummaryDTO(f.getLocation().getName(), f.getWeatherCategory(), f.getIsoTime()));
         }
         return forecastSummaries;
     }
