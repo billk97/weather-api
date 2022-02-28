@@ -7,13 +7,13 @@ import com.example.dtos.out.ForecastSummaryDTO;
 import com.example.dtos.out.ObjectIdDTO;
 import com.example.repository.ForecastRepository;
 import com.example.usecases.forecast.CreateForecast;
-import com.example.usecases.forecast.GetUsersForecastForTheNextHours;
-import com.example.usecases.forecast.GetUsersForecastForTheNextHoursSummary;
-import com.example.usecases.location.DeleteForecastById;
 import com.example.usecases.forecast.GetAllForecastByLocation;
 import com.example.usecases.forecast.GetCurrentForecastForUser;
 import com.example.usecases.forecast.GetUsersForecastForTheNextDays;
 import com.example.usecases.forecast.GetUsersForecastForTheNextDaysSummary;
+import com.example.usecases.forecast.GetUsersForecastForTheNextHours;
+import com.example.usecases.forecast.GetUsersForecastForTheNextHoursSummary;
+import com.example.usecases.location.DeleteForecastById;
 import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -55,6 +55,7 @@ public class ForecastResource {
     private GetUsersForecastForTheNextHours getUsersForecastForTheNextHours;
     @Inject
     private GetUsersForecastForTheNextHoursSummary getUsersForecastForTheNextHoursSummary;
+
 
     /**
      * Gets current forecast fore user.

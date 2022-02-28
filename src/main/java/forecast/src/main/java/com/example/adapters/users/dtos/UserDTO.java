@@ -18,6 +18,12 @@ public record UserDTO(
                 ErrorCode.INVALID_INPUT
             );
         }
+        if(forecastProviderIds.isEmpty()) {
+            throw new IllegalArgumentExceptionWithCode(
+                "No forecast service found on user",
+                ErrorCode.MISSING_USER_FORECAST_PROVIDERS
+            );
+        }
         for(Long id : forecastProviderIds) {
             if(id == null) {
                 throw new IllegalArgumentExceptionWithCode(

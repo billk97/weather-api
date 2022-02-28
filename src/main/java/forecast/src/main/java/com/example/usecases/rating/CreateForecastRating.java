@@ -8,6 +8,7 @@ import com.example.repository.ForecastRepository;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
+import javax.ws.rs.Path;
 
 @RequestScoped
 public class CreateForecastRating {

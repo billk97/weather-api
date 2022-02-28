@@ -47,7 +47,8 @@ class ForecastTests {
             expectedHumidity,
             expectedWind,
             WeatherCategory.Cold,
-            location
+            location,
+            1
         );
         assertEquals(expectedHumidity, forecast.getHumidity());
         assertEquals(expectedTemperature, forecast.getTemperature());
@@ -67,7 +68,7 @@ class ForecastTests {
             expectedHumidity,
             expectedWind,
             WeatherCategory.Cold,
-            1
+            1,1
         );
         Forecast forecast = new Forecast(dto, location);
         assertEquals(expectedHumidity, forecast.getHumidity());

@@ -57,6 +57,7 @@ public class CreateForecastTests {
             1,
             1,
             WeatherCategory.Cold,
+            1,
             1
         );
 
@@ -73,6 +74,7 @@ public class CreateForecastTests {
             1,
             1,
             WeatherCategory.Cold,
+            1,
             9999
         );
 
@@ -90,6 +92,7 @@ public class CreateForecastTests {
             1,
             1,
             WeatherCategory.Cold,
+            1,
             location.getLocationId()
         );
         ObjectIdDTO idDTO = createForecast.command(dto);
