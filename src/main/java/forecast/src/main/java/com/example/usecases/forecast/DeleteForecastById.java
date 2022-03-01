@@ -1,4 +1,4 @@
-package com.example.usecases.location;
+package com.example.usecases.forecast;
 
 import com.example.domain.Forecast;
 import com.example.enums.ErrorCode;
@@ -7,6 +7,7 @@ import com.example.repository.ForecastRatingRepository;
 import com.example.repository.ForecastRepository;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import org.apache.commons.lang3.StringUtils;
 
 @RequestScoped
@@ -18,6 +19,7 @@ public class DeleteForecastById {
     private ForecastRatingRepository forecastRatingRepo;
 
 
+    @Transactional
     public void command(String id) {
         if(!StringUtils.isNumeric(id)) {
             throw new IllegalArgumentExceptionWithCode(

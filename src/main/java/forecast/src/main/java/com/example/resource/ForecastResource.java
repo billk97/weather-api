@@ -13,7 +13,7 @@ import com.example.usecases.forecast.GetUsersForecastForTheNextDays;
 import com.example.usecases.forecast.GetUsersForecastForTheNextDaysSummary;
 import com.example.usecases.forecast.GetUsersForecastForTheNextHours;
 import com.example.usecases.forecast.GetUsersForecastForTheNextHoursSummary;
-import com.example.usecases.location.DeleteForecastById;
+import com.example.usecases.forecast.DeleteForecastById;
 import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;

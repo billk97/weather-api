@@ -8,15 +8,14 @@ import com.example.repository.ForecastRepository;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
-import javax.ws.rs.Path;
 
 @RequestScoped
 public class CreateForecastRating {
 
     @Inject
-    ForecastRatingRepository forecastRatingRepo;
+    private ForecastRatingRepository forecastRatingRepo;
     @Inject
-    ForecastRepository forecastRepo;
+    private ForecastRepository forecastRepo;
 
     @Transactional
     public long command(CreateForecastRatingDTO dto) {
