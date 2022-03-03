@@ -1,8 +1,9 @@
 package com.example.resource;
 
-import com.example.adapters.location.LocationAdapter;
 import com.example.adapters.location.dtos.LocationDTO;
 import com.example.adapters.location.ports.LocationPort;
+import com.example.adapters.serviceProviders.dtos.ServiceProviderDTO;
+import com.example.adapters.serviceProviders.ports.ForecastProviderPort;
 import com.example.domain.User;
 import com.example.dtos.in.RegisterUserDTO;
 import com.example.dtos.out.ObjectIdDTO;
@@ -13,6 +14,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 import java.util.Optional;
 
 @Path("api/users")
@@ -26,6 +28,9 @@ public class UserResource {
 
     @Inject
     RegisterUserResource registerUser;
+
+    @Inject
+    ForecastProviderPort forecastProviderPort; // TODO remove it when add the REST CLIENT
 
     @Inject
     LocationPort locationPort; // TODO remove it when add the REST CLIENT
@@ -57,20 +62,35 @@ public class UserResource {
 
     /**
      * Get location
-     * @param name the user's name
+     * @param id the user's id
      * @returns
      */
     @GET
-    @Path("location/{name}")
-    public Optional<LocationDTO> getLocation(@PathParam("name") String name) {
-        User user = userRepository.findUserByName(name);
+    @Path("location/{id}")
+    public Optional<LocationDTO> getLocation(@PathParam("id") Long id) {
+        User user = userRepository.findById(id);
         if(user == null) {
-            throw new IllegalArgumentException(String.format("User with name: %s does not exist", name));
+            throw new IllegalArgumentException(String.format("User with id: %s does not exist", id));
         }
-        // TODO make the REST CLIENT request to the forecast service to get location
         // currently i just return the dummy location from the LocationDTO {@see LocationAdapter}
        Optional<LocationDTO> locationDTO = locationPort.findLocationById(user.getLocationId());
         return locationDTO;
+    }
+
+    /**
+     * Get forecast providers
+     * @param id user's id
+     * @returns
+     */
+    @GET
+    @Path("forecast-providers/{id}")
+    public List<ServiceProviderDTO> getForecastProviders(@PathParam("id") Long id) {
+        User user = userRepository.findById(id);
+        if(user == null){
+            throw new IllegalArgumentException(String.format("User with name: %s does not exist", id));
+        }
+        List<ServiceProviderDTO> forecastProviders = forecastProviderPort.findUserForecastProviders((List<Long>) user.getForecastProviderIds());
+        return forecastProviders;
     }
 
 }

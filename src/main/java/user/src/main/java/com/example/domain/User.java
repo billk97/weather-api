@@ -27,6 +27,7 @@ public class User {
     private long locationId;
 
     @Column(name = "forecast_provider_ids")
+    @ElementCollection
     private Set<Long> forecastProviderIds = new HashSet<>();
 
     /**

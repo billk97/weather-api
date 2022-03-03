@@ -106,10 +106,18 @@ public class User {
     }
 
     /**
-     * Gets services.
-     *
-     * @return the services
+     * Gets package com.example.dtos.in;
+
+/**
+ * The type Empty dto.
+ */
+public class EmptyDTO {
+    /**
+     * Instantiates a new Empty dto.
      */
+    public EmptyDTO(){}
+}
+
     public Set<Service> getServices() {
         return services;
     }
