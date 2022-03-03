@@ -1,4 +1,8 @@
 package com.example.exceptions;
 
-public class ExceptionWithCode {
+
+import com.example.enums.ErrorCode;
+
+public interface ExceptionWithCode {
+    ErrorCode getErrorCode();
 }
