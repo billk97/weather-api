@@ -1,10 +1,11 @@
-package com.example.usecases;
+package com.example.usecases.location;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.example.dtos.in.CreateLocationDTO;
 import com.example.repository.LocationRepository;
+import com.example.usecases.location.CreateLocation;
 import io.quarkus.test.junit.QuarkusTest;
 import javax.inject.Inject;
 import org.junit.jupiter.api.DisplayNameGeneration;

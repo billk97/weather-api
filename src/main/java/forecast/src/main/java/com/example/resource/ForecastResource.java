@@ -3,13 +3,18 @@ package com.example.resource;
 
 import com.example.domain.Forecast;
 import com.example.dtos.in.CreateForecastDTO;
+import com.example.dtos.out.ForecastSummaryDTO;
 import com.example.dtos.out.ObjectIdDTO;
 import com.example.repository.ForecastRepository;
-import com.example.usecases.CreateForecast;
-import com.example.usecases.GetAllForecastByLocation;
-import com.example.usecases.GetCurrentForecastForUser;
+import com.example.usecases.forecast.CreateForecast;
+import com.example.usecases.forecast.GetAllForecastByLocation;
+import com.example.usecases.forecast.GetCurrentForecastForUser;
+import com.example.usecases.forecast.GetUsersForecastForTheNextDays;
+import com.example.usecases.forecast.GetUsersForecastForTheNextDaysSummary;
+import com.example.usecases.forecast.GetUsersForecastForTheNextHours;
+import com.example.usecases.forecast.GetUsersForecastForTheNextHoursSummary;
+import com.example.usecases.forecast.DeleteForecastById;
 import java.util.List;
-import java.util.Set;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -40,6 +45,17 @@ public class ForecastResource {
     private GetCurrentForecastForUser getCurrentForecastForUser;
     @Inject
     private GetAllForecastByLocation getAllForecastByLocation;
+    @Inject
+    private DeleteForecastById deleteForecastById;
+    @Inject
+    private GetUsersForecastForTheNextDays getUsersForecastForTheNextDays;
+    @Inject
+    private GetUsersForecastForTheNextDaysSummary getUsersForecastForTheNextDaysSummary;
+    @Inject
+    private GetUsersForecastForTheNextHours getUsersForecastForTheNextHours;
+    @Inject
+    private GetUsersForecastForTheNextHoursSummary getUsersForecastForTheNextHoursSummary;
+
 
     /**
      * Gets current forecast fore user.
@@ -86,37 +102,43 @@ public class ForecastResource {
     public Forecast getUsersForecastsForTheNextHours(
         @PathParam("numberOfHours") String numberOfHours,
         @QueryParam("userId") String userId) {
-
-        // TODO implement this
+        getUsersForecastForTheNextHours.query(userId, numberOfHours);
         return null;
     }
 
-    @Deprecated
     @GET
     @Path("days/{numberOfDays}")
-    public Forecast getUsersForecastsForTheNextDays(
+    public List<Forecast> getUsersForecastsForTheNextDays(
         @PathParam("numberOfDays") String numberOfDays,
         @QueryParam("userId") String userId) {
-        // TODO implement this
-        return null;
+        return getUsersForecastForTheNextDays.query(userId, numberOfDays);
+
     }
 
 
     @Deprecated
     @GET
     @Path("days/{numberOfDays}/summary")
-    public Forecast getUsersForecastsSummaryForTheNextDays(
+    public List<ForecastSummaryDTO> getUsersForecastsSummaryForTheNextDays(
         @PathParam("numberOfDays") String numberOfDays,
         @QueryParam("userId") String userId) {
-        // TODO implement this
-        return null;
+        return getUsersForecastForTheNextDaysSummary.query(userId, numberOfDays);
+    }
+
+    @Deprecated
+    @GET
+    @Path("days/{numberOfDays}/summary")
+    public List<ForecastSummaryDTO> getUsersForecastsSummaryForTheNextHours(
+        @PathParam("numberOfDays") String numberOfDays,
+        @QueryParam("userId") String userId) {
+        return getUsersForecastForTheNextHoursSummary.query(userId, numberOfDays);
     }
 
 
     @Deprecated
     @GET
     @Path("warn")
-    public Forecast getUsersForecastSummaryForTheNextDays(
+    public Forecast getUserWarnings(
         @QueryParam("userId") String userId) {
         // TODO implement this
         return null;
@@ -129,12 +151,11 @@ public class ForecastResource {
         return getAllForecastByLocation.query(locationId);
     }
 
-    @Deprecated
     @DELETE
-    @Path("{locationId}")
+    @Path("{forecastId}")
     public void deleteForecastWithId(
-        @PathParam("locationId") String locationId) {
-        // TODO implement this
+        @PathParam("forecastId") String forecastId) {
+        deleteForecastById.command(forecastId);
     }
 
 }
