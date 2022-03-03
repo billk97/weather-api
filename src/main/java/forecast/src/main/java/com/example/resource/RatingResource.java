@@ -27,16 +27,16 @@ import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 public class RatingResource {
 
     @Inject
-    private CreateForecastRating createForecastRating;
+    CreateForecastRating createForecastRating;
 
     @Inject
-    private GetAllRatings getAllRatings;
+    GetAllRatings getAllRatings;
 
     @Inject
-    private GetRatingById getRatingById;
+    GetRatingById getRatingById;
 
     @Inject
-    private DeleteRatingById deleteRatingById;
+    DeleteRatingById deleteRatingById;
 
 
     @POST

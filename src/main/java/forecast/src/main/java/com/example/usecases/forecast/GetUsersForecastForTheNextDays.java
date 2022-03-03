@@ -16,10 +16,10 @@ import org.eclipse.microprofile.rest.client.inject.RestClient;
 public class GetUsersForecastForTheNextDays {
 
     @Inject
-    private ForecastRepository forecastRepo;
+    ForecastRepository forecastRepo;
     @Inject
     @RestClient
-    private UserPort userPort;
+    UserPort userPort;
 
     public List<Forecast> query(String userId, String numberOfDays) {
         if(!StringUtils.isNumeric(userId) || !StringUtils.isNumeric(numberOfDays)) {

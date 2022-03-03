@@ -10,7 +10,7 @@ import javax.inject.Inject;
 public class GetAllLocations {
 
     @Inject
-    private LocationRepository locationRepo;
+    LocationRepository locationRepo;
 
     public List<Location> query() {
         return locationRepo.findAll().stream().toList();

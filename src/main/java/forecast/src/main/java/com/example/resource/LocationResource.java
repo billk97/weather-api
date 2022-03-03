@@ -29,11 +29,11 @@ import javax.ws.rs.core.MediaType;
 public class LocationResource {
 
     @Inject
-    private CreateLocation createLocation;
+    CreateLocation createLocation;
     @Inject
-    private GetLocationByName getLocationByName;
+    GetLocationByName getLocationByName;
     @Inject
-    private GetAllLocations getAllLocations;
+    GetAllLocations getAllLocations;
 
     /**
      * Add new location.

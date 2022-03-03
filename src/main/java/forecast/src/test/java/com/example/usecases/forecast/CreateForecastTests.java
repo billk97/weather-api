@@ -24,12 +24,12 @@ import org.junit.jupiter.api.Test;
 class CreateForecastTests {
 
     @Inject
-    private ForecastRepository forecastRepo;
+    ForecastRepository forecastRepo;
     @Inject
-    private LocationRepository locationRepo;
+    LocationRepository locationRepo;
 
     @Inject
-    private CreateForecast createForecast;
+    CreateForecast createForecast;
 
     @AfterEach
     void tierDown() {

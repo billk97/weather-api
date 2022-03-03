@@ -36,17 +36,17 @@ import org.mockito.Mockito;
 class GetUsersForecastForTheNextDaysSummatyTests {
 
     @Inject
-    private ForecastRepository forecastRepo;
+    ForecastRepository forecastRepo;
 
     @Inject
-    private LocationRepository locationRepo;
+    LocationRepository locationRepo;
 
     @Inject
-    private GetUsersForecastForTheNextDaysSummary getUsersForecastForTheNextDaysSummary;
+    GetUsersForecastForTheNextDaysSummary getUsersForecastForTheNextDaysSummary;
 
     @InjectMock
     @RestClient
-    private UserPort userPort;
+    UserPort userPort;
 
     @AfterEach
     void tierDown() {

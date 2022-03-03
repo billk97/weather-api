@@ -29,12 +29,12 @@ import org.junit.jupiter.api.Test;
 public class CreateForecastTests {
 
     @Inject
-    private ForecastRepository forecastRepository;
+    ForecastRepository forecastRepository;
     @Inject
-    private LocationRepository locationRepository;
+    LocationRepository locationRepository;
 
     @Inject
-    private CreateForecast createForecast;
+    CreateForecast createForecast;
 
     private Location location = new Location("Athens", 0.0, 0.0);
 

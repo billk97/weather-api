@@ -17,10 +17,10 @@ import org.junit.jupiter.api.Test;
 class CreateLocationTests {
 
     @Inject
-    private LocationRepository locationRepo;
+    LocationRepository locationRepo;
 
     @Inject
-    private CreateLocation createLocation;
+    CreateLocation createLocation;
 
     @Test
     void given_a_location_dto_with_null_name_IT_should_throw() {

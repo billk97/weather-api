@@ -14,9 +14,9 @@ import org.apache.commons.lang3.StringUtils;
 public class DeleteForecastById {
 
     @Inject
-    private ForecastRepository forecastRepo;
+    ForecastRepository forecastRepo;
     @Inject
-    private ForecastRatingRepository forecastRatingRepo;
+    ForecastRatingRepository forecastRatingRepo;
 
 
     @Transactional

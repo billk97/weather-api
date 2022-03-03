@@ -31,14 +31,14 @@ import org.junit.jupiter.api.Test;
 class DeleteForecastByIdTests {
 
     @Inject
-    private ForecastRepository forecastRepo;
+    ForecastRepository forecastRepo;
     @Inject
-    private LocationRepository locationRepo;
+    LocationRepository locationRepo;
     @Inject
-    private ForecastRatingRepository forecastRatingRepo;
+    ForecastRatingRepository forecastRatingRepo;
 
     @Inject
-    private  DeleteForecastById deleteForecastById;
+    DeleteForecastById deleteForecastById;
 
 
 
