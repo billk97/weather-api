@@ -11,7 +11,7 @@ import javax.transaction.Transactional;
 public class CreateLocation {
 
     @Inject
-    private LocationRepository locationRepo;
+    LocationRepository locationRepo;
 
     @Transactional
     public long command(CreateLocationDTO dto) {

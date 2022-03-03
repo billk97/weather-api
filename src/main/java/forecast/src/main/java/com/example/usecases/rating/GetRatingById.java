@@ -12,7 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 public class GetRatingById {
 
     @Inject
-    private ForecastRatingRepository forecastRatingRepository;
+    ForecastRatingRepository forecastRatingRepository;
 
     public Rating query(String ratingId) {
         if(!StringUtils.isNumeric(ratingId)) {

@@ -11,7 +11,7 @@ import javax.inject.Inject;
 public class GetUsersForecastForTheNextDaysSummary {
 
     @Inject
-    private  GetUsersForecastForTheNextDays getUsersForecastForTheNextDays;
+     GetUsersForecastForTheNextDays getUsersForecastForTheNextDays;
 
     public List<ForecastSummaryDTO> query(String userId, String numberOfDays) {
         List<ForecastSummaryDTO> forecastSummaries = new ArrayList<>();

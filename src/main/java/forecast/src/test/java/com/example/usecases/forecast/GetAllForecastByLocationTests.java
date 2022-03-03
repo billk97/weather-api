@@ -25,13 +25,13 @@ class GetAllForecastByLocationTests {
 
 
     @Inject
-    private ForecastRepository forecastRepo;
+    ForecastRepository forecastRepo;
 
     @Inject
-    private LocationRepository locationRepo;
+    LocationRepository locationRepo;
 
     @Inject
-    private GetAllForecastByLocation getAllForecastByLocation;
+    GetAllForecastByLocation getAllForecastByLocation;
 
     @AfterEach
     void tierDown() {

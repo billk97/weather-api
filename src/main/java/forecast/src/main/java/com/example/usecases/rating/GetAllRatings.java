@@ -10,7 +10,7 @@ import javax.inject.Inject;
 public class GetAllRatings {
 
     @Inject
-    private ForecastRatingRepository forecastRatingRepo;
+    ForecastRatingRepository forecastRatingRepo;
 
     public List<Rating> query() {
         return forecastRatingRepo.findAll().stream().toList();

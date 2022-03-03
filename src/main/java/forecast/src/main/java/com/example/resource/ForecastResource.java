@@ -38,23 +38,23 @@ import org.apache.commons.lang3.StringUtils;
 public class ForecastResource {
 
     @Inject
-    private ForecastRepository forecastRepo;
+    ForecastRepository forecastRepo;
     @Inject
-    private CreateForecast createForecast;
+    CreateForecast createForecast;
     @Inject
-    private GetCurrentForecastForUser getCurrentForecastForUser;
+    GetCurrentForecastForUser getCurrentForecastForUser;
     @Inject
-    private GetAllForecastByLocation getAllForecastByLocation;
+    GetAllForecastByLocation getAllForecastByLocation;
     @Inject
-    private DeleteForecastById deleteForecastById;
+    DeleteForecastById deleteForecastById;
     @Inject
-    private GetUsersForecastForTheNextDays getUsersForecastForTheNextDays;
+    GetUsersForecastForTheNextDays getUsersForecastForTheNextDays;
     @Inject
-    private GetUsersForecastForTheNextDaysSummary getUsersForecastForTheNextDaysSummary;
+    GetUsersForecastForTheNextDaysSummary getUsersForecastForTheNextDaysSummary;
     @Inject
-    private GetUsersForecastForTheNextHours getUsersForecastForTheNextHours;
+    GetUsersForecastForTheNextHours getUsersForecastForTheNextHours;
     @Inject
-    private GetUsersForecastForTheNextHoursSummary getUsersForecastForTheNextHoursSummary;
+    GetUsersForecastForTheNextHoursSummary getUsersForecastForTheNextHoursSummary;
 
 
     /**

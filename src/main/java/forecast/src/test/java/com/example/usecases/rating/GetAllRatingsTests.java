@@ -26,13 +26,13 @@ import org.junit.jupiter.api.Test;
 class GetAllRatingsTests {
 
     @Inject
-    private ForecastRatingRepository forecastRatingRepo;
+    ForecastRatingRepository forecastRatingRepo;
     @Inject
-    private LocationRepository locationRepo;
+    LocationRepository locationRepo;
     @Inject
-    private ForecastRepository forecastRepo;
+    ForecastRepository forecastRepo;
     @Inject
-    private GetAllRatings getAllRatings;
+    GetAllRatings getAllRatings;
 
 
     @AfterEach

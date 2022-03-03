@@ -19,10 +19,10 @@ import org.junit.jupiter.api.Test;
 class GetLocationByNameTests {
 
     @Inject
-    private LocationRepository locationRepo;
+    LocationRepository locationRepo;
 
     @Inject
-    private GetLocationByName getLocationByName;
+    GetLocationByName getLocationByName;
 
     @AfterEach
     void tierDown() {

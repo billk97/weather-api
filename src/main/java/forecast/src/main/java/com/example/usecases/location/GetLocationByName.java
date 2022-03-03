@@ -12,7 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 public class GetLocationByName {
 
     @Inject
-    private LocationRepository locationRepo;
+    LocationRepository locationRepo;
 
     public Location query(String locationId) {
         if(!StringUtils.isNumeric(locationId)) {

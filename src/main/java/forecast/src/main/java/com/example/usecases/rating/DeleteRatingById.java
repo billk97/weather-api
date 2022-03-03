@@ -11,7 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 public class DeleteRatingById {
 
     @Inject
-    private ForecastRatingRepository forecastRatingRepo;
+    ForecastRatingRepository forecastRatingRepo;
 
     public void command(String ratingId) {
         if(!StringUtils.isNumeric(ratingId)) {

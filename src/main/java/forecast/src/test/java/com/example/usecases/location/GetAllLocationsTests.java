@@ -7,10 +7,8 @@ import com.example.repository.LocationRepository;
 import io.quarkus.test.junit.QuarkusTest;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.DisplayNameGeneration;
-import org.junit.jupiter.api.DisplayNameGenerator;
-import org.junit.jupiter.api.Test;
+
+import org.junit.jupiter.api.*;
 
 @QuarkusTest
 @Transactional
@@ -19,10 +17,17 @@ class GetAllLocationsTests {
 
 
     @Inject
-    private LocationRepository locationRepo;
+    LocationRepository locationRepo;
 
     @Inject
-    private GetAllLocations getAllLocations;
+    GetAllLocations getAllLocations;
+
+
+
+    @BeforeEach
+    void init() {
+        locationRepo.deleteAll();
+    }
 
     @AfterEach
     void tierDown() {

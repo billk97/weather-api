@@ -14,9 +14,9 @@ import javax.transaction.Transactional;
 public class CreateForecast {
 
     @Inject
-    private ForecastRepository forecastRepo;
+    ForecastRepository forecastRepo;
     @Inject
-    private LocationRepository locationRepo;
+    LocationRepository locationRepo;
 
 
     @Transactional
