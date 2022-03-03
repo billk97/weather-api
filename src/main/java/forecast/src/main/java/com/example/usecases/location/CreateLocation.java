@@ -1,4 +1,4 @@
-package com.example.usecases;
+package com.example.usecases.location;
 
 import com.example.domain.Location;
 import com.example.dtos.in.CreateLocationDTO;
@@ -11,7 +11,7 @@ import javax.transaction.Transactional;
 public class CreateLocation {
 
     @Inject
-    private LocationRepository locationRepo;
+    LocationRepository locationRepo;
 
     @Transactional
     public long command(CreateLocationDTO dto) {

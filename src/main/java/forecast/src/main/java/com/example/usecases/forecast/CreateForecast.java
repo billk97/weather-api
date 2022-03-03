@@ -1,4 +1,4 @@
-package com.example.usecases;
+package com.example.usecases.forecast;
 
 import com.example.domain.Forecast;
 import com.example.domain.Location;
@@ -14,9 +14,9 @@ import javax.transaction.Transactional;
 public class CreateForecast {
 
     @Inject
-    private ForecastRepository forecastRepo;
+    ForecastRepository forecastRepo;
     @Inject
-    private LocationRepository locationRepo;
+    LocationRepository locationRepo;
 
 
     @Transactional

@@ -1,37 +1,31 @@
-package com.example.usecases;
+package com.example.usecases.location;
 
-
-import com.example.domain.Forecast;
 import com.example.domain.Location;
 import com.example.enums.ErrorCode;
 import com.example.exceptions.IllegalArgumentExceptionWithCode;
-import com.example.repository.ForecastRepository;
 import com.example.repository.LocationRepository;
-import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import org.apache.commons.lang3.StringUtils;
 
 @RequestScoped
-public class GetAllForecastByLocation {
+public class GetLocationByName {
 
     @Inject
     LocationRepository locationRepo;
-    @Inject
-    ForecastRepository forecastRepo;
 
-    public List<Forecast> query(String locationId) {
+    public Location query(String locationId) {
         if(!StringUtils.isNumeric(locationId)) {
             throw new IllegalArgumentExceptionWithCode(
-                String.format("Location with id: %s not found", locationId),
+                String.format("Forecast with id: %s not found", locationId),
                 ErrorCode.INVALID_INPUT
             );
         }
         Location location = locationRepo.findById(Long.valueOf(locationId));
         if(location == null) {
-            throw new IllegalArgumentExceptionWithCode(String.format("Location with id: %s not found", locationId), ErrorCode.LOCATION_NOT_FOUND);
+            throw new IllegalArgumentException(String.format("Location with id: %s doesnt exist",
+                locationId));
         }
-        List<Forecast> forecasts = forecastRepo.findForecastByLocation(location);
-        return forecasts;
+        return location;
     }
 }

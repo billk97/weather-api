@@ -64,13 +64,14 @@ public class Forecast {
      * @param weatherCategory the weather category
      * @param location        the location
      */
-    public Forecast(Instant isoTime, int temperature, float humidity, int wind, WeatherCategory weatherCategory, Location location) {
+    public Forecast(Instant isoTime, int temperature, float humidity, int wind, WeatherCategory weatherCategory, Location location, long forecastProviderId) {
         this.isoTime = isoTime;
         this.temperature = temperature;
         this.humidity = humidity;
         this.wind = wind;
         this.weatherCategory = weatherCategory;
         this.location = location;
+        this.forecastProviderId = forecastProviderId;
     }
 
     public Forecast(CreateForecastDTO dto, Location location) {
@@ -79,9 +80,17 @@ public class Forecast {
         this.humidity = dto.humidity();
         this.wind = dto.wind();
         this.weatherCategory = dto.weatherCategory();
+        this.forecastProviderId= dto.forecastProviderId();
         this.location = location;
     }
 
+    public long getForecastProviderId() {
+        return forecastProviderId;
+    }
+
+    public void setForecastProviderId(long forecastProviderId) {
+        this.forecastProviderId = forecastProviderId;
+    }
 
     /**
      * Get forecast id int.

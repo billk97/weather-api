@@ -3,7 +3,11 @@ package com.example.resource;
 import com.example.domain.Rating;
 import com.example.dtos.in.CreateForecastRatingDTO;
 import com.example.dtos.out.ObjectIdDTO;
-import com.example.usecases.CreateForecastRating;
+import com.example.usecases.rating.CreateForecastRating;
+import com.example.usecases.rating.DeleteRatingById;
+import com.example.usecases.rating.GetAllRatings;
+import com.example.usecases.rating.GetRatingById;
+import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -23,7 +27,16 @@ import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 public class RatingResource {
 
     @Inject
-    private CreateForecastRating createForecastRating;
+    CreateForecastRating createForecastRating;
+
+    @Inject
+    GetAllRatings getAllRatings;
+
+    @Inject
+    GetRatingById getRatingById;
+
+    @Inject
+    DeleteRatingById deleteRatingById;
 
 
     @POST
@@ -31,28 +44,23 @@ public class RatingResource {
         return new ObjectIdDTO(createForecastRating.command(dto));
     }
 
-    @Deprecated
     @GET
     @Path("{ratingId}")
-    public Rating getRatingById(@PathParam("ratingId") String forecastId) {
-        // TODO implement this
-        return null;
+    public Rating getRatingById(@PathParam("ratingId") String ratingId) {
+        return getRatingById.query(ratingId);
     }
 
-
-    @Deprecated
     @GET
-    public Rating getAllRatings() {
-        // TODO implement this
-        return null;
+    public List<Rating> getAllRatings() {
+        return getAllRatings.query();
     }
 
-    @Deprecated
+
     @DELETE
     @Path("{ratingId}")
     public void deleteRatingWithId(
-        @PathParam("ratingId") String locationId) {
-        // TODO implement this
+        @PathParam("ratingId") String ratingId) {
+        deleteRatingById.command(ratingId);
     }
 
 

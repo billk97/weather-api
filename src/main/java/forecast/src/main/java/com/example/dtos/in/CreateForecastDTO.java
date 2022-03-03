@@ -9,5 +9,6 @@ public record CreateForecastDTO(
     float humidity,
     int wind,
     WeatherCategory weatherCategory,
+    long forecastProviderId,
     long locationId) {
 }
