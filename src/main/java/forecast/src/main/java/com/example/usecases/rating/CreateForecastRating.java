@@ -13,9 +13,9 @@ import javax.transaction.Transactional;
 public class CreateForecastRating {
 
     @Inject
-    private ForecastRatingRepository forecastRatingRepo;
+    ForecastRatingRepository forecastRatingRepo;
     @Inject
-    private ForecastRepository forecastRepo;
+    ForecastRepository forecastRepo;
 
     @Transactional
     public long command(CreateForecastRatingDTO dto) {
