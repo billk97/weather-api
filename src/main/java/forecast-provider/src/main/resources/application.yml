@@ -1,9 +1,11 @@
 greeting:
   message: "hello"
 
+
 user-api/mp-rest/url: "http://localhost:5100"
 forecast-provider-api/mp-rest/url: "http://localhost:5200"
 forecast-api/mp-rest/url: "http://localhost:5000"
+
 
 quarkus:
   http:
@@ -11,7 +13,6 @@ quarkus:
   datasource:
     db-kind: mysql
     username: root
-    password: root
     jdbc:
       url: jdbc:mysql://localhost:3306/forecast_provider
   hibernate-orm:

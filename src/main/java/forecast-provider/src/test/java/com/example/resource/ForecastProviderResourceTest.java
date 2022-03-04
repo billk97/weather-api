@@ -14,6 +14,9 @@ import org.junit.jupiter.api.Test;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 
+import java.util.List;
+
+import static org.hamcrest.Matchers.equalTo;
 import static org.junit.jupiter.api.Assertions.*;
 
 @QuarkusTest
@@ -21,10 +24,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestHTTPEndpoint(ForecastProviderResource.class)
 class ForecastProviderResourceTest {
 
-//    Test add forecast provider
-//          give empty dto name and expect error
-//          give proper name and assert that provider created and his name is the given
-//    Test getAllProviders
 //
 //    Test edit provider
 //    Test getForecastProvider
@@ -40,24 +39,18 @@ class ForecastProviderResourceTest {
         providerRepo.persist(provider);
     }
 
-
     @Test
-    void this_is_ok(){
+    void given_a_json_with_empty_name_should_fail_with_status_400(){
+        CreateForecastProviderDTO dto = new CreateForecastProviderDTO(null, "Description");
 
+        given()
+                .contentType(ContentType.JSON)
+                .body(dto)
+                .when()
+                .post()
+                .then()
+                .statusCode(400);
     }
-
-//    @Test
-//    void given_a_json_with_empty_name_should_fail_with_status_400(){
-//        CreateForecastProviderDTO dto = new CreateForecastProviderDTO(null, "Description");
-//
-//        given()
-//                .contentType(ContentType.JSON)
-//                .body(dto)
-//                .when()
-//                .post()
-//                .then()
-//                .statusCode(400);
-//    }
 
     @Test
     void given_a_json_with_name_should_store() {
@@ -71,4 +64,20 @@ class ForecastProviderResourceTest {
                 .then()
                 .statusCode(200);
     }
+    @Test
+    void assert_endpoint_fetches_all_forecast_providers() {
+        long providerCount = providerRepo.findAll().count();
+
+        ForecastProvider[] providers = given()
+                .contentType(ContentType.JSON)
+                .when()
+                .get()
+                .then()
+                .statusCode(200)
+                .extract().body().as(ForecastProvider[].class);
+
+        assertEquals(providerCount, providers.length);
+    }
+
+
 }
