@@ -1,10 +1,11 @@
-package com.example.usecases;
+package com.example.usecases.location;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.example.dtos.in.CreateLocationDTO;
 import com.example.repository.LocationRepository;
+import com.example.usecases.location.CreateLocation;
 import io.quarkus.test.junit.QuarkusTest;
 import javax.inject.Inject;
 import org.junit.jupiter.api.DisplayNameGeneration;
@@ -16,10 +17,10 @@ import org.junit.jupiter.api.Test;
 class CreateLocationTests {
 
     @Inject
-    private LocationRepository locationRepo;
+    LocationRepository locationRepo;
 
     @Inject
-    private CreateLocation createLocation;
+    CreateLocation createLocation;
 
     @Test
     void given_a_location_dto_with_null_name_IT_should_throw() {

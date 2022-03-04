@@ -22,7 +22,7 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: compilation
-      run: mvn compile quarkus:dev
+#     - name: compilation
+#       run: cd src/main/java/forecast && ./mvnw compile quarkus:build
     - name: Tests
-      run: mvn package quarkus:test
+      run: cd src/main/java/forecast && ./mvnw package quarkus:test
