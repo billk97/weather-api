@@ -12,7 +12,7 @@ import javax.inject.Inject;
 public class CreateForecastProvider {
 
     @Inject
-    private ForecastProviderRepository forecastProviderRepo;
+    ForecastProviderRepository forecastProviderRepo;
 
 
     public ObjectIdDTO command(CreateForecastProviderDTO dto) {

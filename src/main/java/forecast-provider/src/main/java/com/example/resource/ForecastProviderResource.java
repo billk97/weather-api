@@ -5,6 +5,7 @@ import com.example.dtos.in.CreateForecastProviderDTO;
 import com.example.dtos.out.ObjectIdDTO;
 import com.example.repositories.ForecastProviderRepository;
 import com.example.usecases.CreateForecastProvider;
+import com.example.usecases.GetSingleProvider;
 import com.example.usecases.UpdateForecastProvider;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -20,13 +21,16 @@ import java.util.List;
 public class ForecastProviderResource {
 
     @Inject
-    private ForecastProviderRepository forecastProviderRepo;
+    ForecastProviderRepository forecastProviderRepo;
 
     @Inject
-    private CreateForecastProvider createForecastProvider;
+    CreateForecastProvider createForecastProvider;
 
     @Inject
-    private UpdateForecastProvider updateForecastProvider;
+    UpdateForecastProvider updateForecastProvider;
+
+    @Inject
+    GetSingleProvider getSingleProvider;
 
     @GET
     public List<ForecastProvider> getAllProviders() {
@@ -44,5 +48,13 @@ public class ForecastProviderResource {
             @PathParam("forecastProviderId") String forecastProviderId,
             CreateForecastProviderDTO dto) {
         return updateForecastProvider.command(forecastProviderId, dto);
+    }
+
+    @GET
+    @Path("{forecastProviderId}")
+    public ForecastProvider getForecastProvider(
+            @PathParam("forecastProviderId") String providerId
+    ){
+        return getSingleProvider.command(providerId);
     }
 }

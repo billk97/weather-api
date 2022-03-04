@@ -10,7 +10,7 @@ import javax.inject.Inject;
 public class UpdateForecastProvider {
 
     @Inject
-    private ForecastProviderRepository forecastProviderRepo;
+    ForecastProviderRepository forecastProviderRepo;
 
     public ObjectIdDTO command(String forecastProviderId, CreateForecastProviderDTO dto) {
         if (dto.name() == null) {

@@ -19,16 +19,14 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 public class ForecastService {
 
-//    TODO 3 - Create fetch singe forecast
+    @Inject
+    ForecastRepository forecastRepo;
 
     @Inject
-    private ForecastRepository forecastRepo;
+    CreateForecast createForecast;
 
     @Inject
-    private CreateForecast createForecast;
-
-    @Inject
-    private GetProviderForecasts getProviderForecasts;
+    GetProviderForecasts getProviderForecasts;
 
     @POST
     public ObjectIdDTO addForecast(CreateForecastDTO dto){
