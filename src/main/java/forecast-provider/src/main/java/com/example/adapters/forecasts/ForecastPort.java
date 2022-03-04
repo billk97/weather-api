@@ -17,5 +17,5 @@ public interface ForecastPort {
     @POST
     @Path("forecasts")
     @Produces(MediaType.APPLICATION_JSON)
-    Optional<Object> provideProviderForecasts(@RequestBody Forecast forecast);
+    void provideProviderForecasts(@RequestBody Forecast forecast);
 }

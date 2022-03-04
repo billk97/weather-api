@@ -79,5 +79,21 @@ class ForecastProviderResourceTest {
         assertEquals(providerCount, providers.length);
     }
 
+    @Test
+    void given_a_json_with_empty_name_should_fail_edit(){
+        CreateForecastProviderDTO dto = new CreateForecastProviderDTO(null, "Somewhat ok");
+        List<ForecastProvider> providers = providerRepo.findAll().list();
+
+        given()
+                .contentType(ContentType.JSON)
+                .pathParam("forecastProviderId", providers.get(0).getId())
+                .body(dto)
+                .when()
+                .post("{forecastProviderId}/edit")
+                .then()
+                .statusCode(400);
+    }
+
+
 
 }
