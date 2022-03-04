@@ -14,11 +14,8 @@ import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayNameGeneration;
-import org.junit.jupiter.api.DisplayNameGenerator;
-import org.junit.jupiter.api.Test;
+
+import org.junit.jupiter.api.*;
 
 @QuarkusTest
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
@@ -35,6 +32,7 @@ class LocationResourceTests {
 
     @BeforeEach
     void init() {
+        forecastRepository.deleteAll();
         locationRepo.deleteAll();
         location = new Location("athens", 0,0);
         locationRepo.persist(location);
