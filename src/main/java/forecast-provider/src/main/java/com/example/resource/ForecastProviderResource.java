@@ -7,6 +7,7 @@ import com.example.repositories.ForecastProviderRepository;
 import com.example.usecases.CreateForecastProvider;
 import com.example.usecases.GetSingleProvider;
 import com.example.usecases.UpdateForecastProvider;
+import com.example.usecases.UpdateForecasts;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -32,6 +33,9 @@ public class ForecastProviderResource {
     @Inject
     GetSingleProvider getSingleProvider;
 
+    @Inject
+    UpdateForecasts updateForecasts;
+
     @GET
     public List<ForecastProvider> getAllProviders() {
         return forecastProviderRepo.findAll().stream().toList();
@@ -56,5 +60,11 @@ public class ForecastProviderResource {
             @PathParam("forecastProviderId") String providerId
     ){
         return getSingleProvider.command(providerId);
+    }
+
+    @GET
+    @Path("update-forecasts-service")
+    public void updateForecastService(){
+        updateForecasts.command();
     }
 }
