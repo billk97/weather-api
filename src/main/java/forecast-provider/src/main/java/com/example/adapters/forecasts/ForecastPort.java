@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
 import java.util.Optional;
 
 @Path("/api")
-@RegisterRestClient(configKey = "forecast-api/")
+@RegisterRestClient(configKey = "forecast-api")
 public interface ForecastPort {
 
     @POST

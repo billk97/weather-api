@@ -1,6 +1,13 @@
 greeting:
   message: "hello"
+
+user-api/mp-rest/url: "http://localhost:5100"
+forecast-provider-api/mp-rest/url: "http://localhost:5200"
+forecast-api/mp-rest/url: "http://localhost:5000"
+
 quarkus:
+  http:
+    port: 5200
   datasource:
     db-kind: mysql
     username: root
