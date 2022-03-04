@@ -8,6 +8,7 @@ import jdk.jfr.Registered;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 
 @RequestScoped
 public class UpdateForecastProvider {
@@ -15,6 +16,7 @@ public class UpdateForecastProvider {
     @Inject
     ForecastProviderRepository forecastProviderRepo;
 
+    @Transactional
     public ObjectIdDTO command(String forecastProviderId, CreateForecastProviderDTO dto) {
         if (dto.name() == null) {
             throw new IllegalArgumentException("Forecast provider name cannot be empty");
@@ -31,7 +33,12 @@ public class UpdateForecastProvider {
         forecastProvider.setName(dto.name());
         forecastProvider.setDescription(dto.description());
 
-        forecastProviderRepo.persist(forecastProvider);
+//        forecastProviderRepo.persistAndFlush(forecastProvider);
+
+
+        ForecastProvider prv = forecastProviderRepo.findById(forecastProvider.getId());
+
+        System.out.println(prv.getName());
         return new ObjectIdDTO(forecastProvider.getId());
     }
 }
