@@ -4,8 +4,10 @@ import com.example.domain.ForecastProvider;
 import com.example.dtos.out.ObjectIdDTO;
 import com.example.repositories.ForecastProviderRepository;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
+@RequestScoped
 public class GetSingleProvider {
     @Inject
     ForecastProviderRepository forecastProviderRepo;

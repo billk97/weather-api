@@ -4,9 +4,12 @@ import com.example.domain.ForecastProvider;
 import com.example.dtos.in.CreateForecastProviderDTO;
 import com.example.dtos.out.ObjectIdDTO;
 import com.example.repositories.ForecastProviderRepository;
+import jdk.jfr.Registered;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
+@RequestScoped
 public class UpdateForecastProvider {
 
     @Inject

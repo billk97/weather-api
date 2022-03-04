@@ -8,7 +8,7 @@ quarkus:
     username: sa
     password: root
     jdbc:
-      url: jdbc:h2:mem:forecast-provider
+      url: jdbc:h2:mem:forecast_provider
   hibernate-orm:
     sql-load-script: no-file
     database:

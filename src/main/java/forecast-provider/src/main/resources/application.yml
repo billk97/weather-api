@@ -6,7 +6,8 @@ quarkus:
     username: root
     password: root
     jdbc:
-      url: jdbc:mysql://localhost:3307/forecast-provider
+      url: jdbc:mysql://localhost:3307/forecast_provider
   hibernate-orm:
+    sql-load-script: no-file
     database:
       generation: "drop-and-create"
