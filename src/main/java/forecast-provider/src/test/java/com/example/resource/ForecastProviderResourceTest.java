@@ -58,4 +58,17 @@ class ForecastProviderResourceTest {
 //                .then()
 //                .statusCode(400);
 //    }
+
+    @Test
+    void given_a_json_with_name_should_store() {
+        CreateForecastProviderDTO dto = new CreateForecastProviderDTO("Google", "Somewhat ok");
+
+                given()
+                .contentType(ContentType.JSON)
+                .body(dto)
+                .when()
+                .post()
+                .then()
+                .statusCode(200);
+    }
 }
