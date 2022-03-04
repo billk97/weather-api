@@ -10,7 +10,7 @@ import java.time.LocalTime;
 import java.util.Objects;
 
 @Entity
-@Table(name = "forecasts")
+@Table(name = "forecast")
 public class Forecast {
 
     @Id
@@ -34,12 +34,12 @@ public class Forecast {
     @Column(name = "weather_description")
     private WeatherCategory weatherCategory;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "providerId")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "forecast_provider_id")
     private ForecastProvider forecastProvider;
 
     @ManyToOne(fetch= FetchType.LAZY)
-    @JoinColumn(name = "locationId")
+    @JoinColumn(name = "location_id")
     private Location location;
 
     /**

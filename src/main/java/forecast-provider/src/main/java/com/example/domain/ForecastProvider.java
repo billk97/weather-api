@@ -1,17 +1,19 @@
 package com.example.domain;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "forecast-providers")
+@Table(name = "forecast_provider")
 public class ForecastProvider {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id")
-    private long forecastProviderId;
+    private long id;
 
-    @Column(name="name", unique=true)
+    @Column(name="name")
     private String name;
 
     @Column(name = "description")
@@ -40,7 +42,7 @@ public class ForecastProvider {
      * @return the int
      */
     public long getId(){
-        return forecastProviderId;
+        return id;
     }
 
     /**
@@ -79,14 +81,7 @@ public class ForecastProvider {
         this.description = description;
     }
 
-    /**
-     * Gets service id.
-     *
-     * @return the service id
-     */
-    public long getForecastProviderId() {
-        return forecastProviderId;
-    }
+
 
     @Override
     public boolean equals(Object o) {

@@ -24,6 +24,7 @@ public class Location {
 
 
 
+
     /**
      * Instantiates a new Location.
      */
