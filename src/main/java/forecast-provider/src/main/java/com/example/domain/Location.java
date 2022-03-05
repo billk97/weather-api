@@ -1,8 +1,10 @@
 package com.example.domain;
 
 import com.example.dtos.in.CreateLocationDTO;
+import org.jboss.resteasy.spi.touri.MappedBy;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -22,7 +24,8 @@ public class Location {
     @Column(name = "longitude")
     private Double longitude;
 
-
+    @OneToMany(mappedBy="location")
+    private List<Forecast> forecasts;
 
 
     /**

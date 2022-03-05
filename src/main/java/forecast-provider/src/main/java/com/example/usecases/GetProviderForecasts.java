@@ -7,6 +7,7 @@ import com.example.exceptions.IllegalArgumentExceptionWithCode;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import java.util.List;
 
 import com.example.repositories.ForecastProviderRepository;
@@ -22,6 +23,7 @@ public class GetProviderForecasts {
     @Inject
     ForecastRepository forecastRepository;
 
+    @Transactional
     public List<Forecast> query(String providerId) {
         if(!StringUtils.isNumeric(providerId)) {
             throw new IllegalArgumentExceptionWithCode(

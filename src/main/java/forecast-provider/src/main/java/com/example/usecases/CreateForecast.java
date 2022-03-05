@@ -11,8 +11,10 @@ import com.example.repositories.LocationRepository;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 
 @RequestScoped
+@Transactional
 public class CreateForecast {
 
     @Inject
