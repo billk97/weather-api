@@ -14,6 +14,7 @@ import io.quarkus.test.common.http.TestHTTPEndpoint;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import javax.inject.Inject;
@@ -134,7 +135,7 @@ class ForecastServiceTest {
                 .statusCode(400);
     }
 
-    @Test
+    @Disabled
     void on_numeric_and_present_provider_should_fetch_one_forecast(){
 
         given()
