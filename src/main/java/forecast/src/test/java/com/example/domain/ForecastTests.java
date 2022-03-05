@@ -2,6 +2,7 @@ package com.example.domain;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.example.dtos.in.CreateForecastDTO;
@@ -47,7 +48,8 @@ class ForecastTests {
             expectedHumidity,
             expectedWind,
             WeatherCategory.Cold,
-            location
+            location,
+            1
         );
         assertEquals(expectedHumidity, forecast.getHumidity());
         assertEquals(expectedTemperature, forecast.getTemperature());
@@ -67,7 +69,7 @@ class ForecastTests {
             expectedHumidity,
             expectedWind,
             WeatherCategory.Cold,
-            1
+            1,1
         );
         Forecast forecast = new Forecast(dto, location);
         assertEquals(expectedHumidity, forecast.getHumidity());
@@ -118,5 +120,22 @@ class ForecastTests {
         forecast.setWeatherCategory(WeatherCategory.Sunny);
         assertFalse(forecast.isBadWeather());
     }
+
+    @Test
+    void test_equals_works() {
+        Forecast forecast = new Forecast();
+        Forecast forecast2 = new Forecast();
+        assertEquals(forecast, forecast2);
+
+    }
+
+    @Test
+    void given_null_object_equals_should_fail(){
+        Forecast forecast1 = new Forecast();
+        Forecast forecast = null;
+        assertFalse(forecast1.equals(forecast));
+    }
+
+
 
 }

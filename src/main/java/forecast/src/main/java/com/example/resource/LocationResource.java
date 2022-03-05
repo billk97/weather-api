@@ -5,7 +5,9 @@ import com.example.domain.Location;
 import com.example.dtos.in.CreateLocationDTO;
 import com.example.dtos.out.ObjectIdDTO;
 import com.example.repository.LocationRepository;
-import com.example.usecases.CreateLocation;
+import com.example.usecases.location.CreateLocation;
+import com.example.usecases.location.GetAllLocations;
+import com.example.usecases.location.GetLocationByName;
 import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -27,9 +29,11 @@ import javax.ws.rs.core.MediaType;
 public class LocationResource {
 
     @Inject
-    LocationRepository locationRepo;
-    @Inject
     CreateLocation createLocation;
+    @Inject
+    GetLocationByName getLocationByName;
+    @Inject
+    GetAllLocations getAllLocations;
 
     /**
      * Add new location.
@@ -51,12 +55,10 @@ public class LocationResource {
     @GET
     @Path("{locationId}")
     public Location getLocationByName(@PathParam("locationId") String locationId){
-        Location location = locationRepo.findById(Long.valueOf(locationId));
-        if(location == null) {
-            throw new IllegalArgumentException(String.format("Location with id: %s doesnt exist", locationId));
-        }
-        return location;
+        return getLocationByName.query(locationId);
     }
+
+
 
     /**
      * Get all locations list.
@@ -65,8 +67,9 @@ public class LocationResource {
      */
     @GET
     public List<Location> getAllLocations(){
-        return locationRepo.findAll().stream().toList();
+        return getAllLocations.query();
     }
+
 
 
 

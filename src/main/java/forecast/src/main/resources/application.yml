@@ -1,22 +1,18 @@
-greeting:
-  message: "hello"
+server:
+  api-prefix: /api
 
 user-api/mp-rest/url: "http://localhost:5100"
 forecast-provider-api/mp-rest/url: "http://localhost:5200"
 
 quarkus:
   http:
-    test-port: 5003
-  test:
-    continuous-testing: enabled
-    display-tes-output: true
+    port: 5000
   datasource:
-    db-kind: h2
-    username: sa
+    db-kind: mysql
+    username: root
     password: root
     jdbc:
-      url: jdbc:h2:mem:weather_api
+      url: jdbc:mysql://localhost:3307/weather_api
   hibernate-orm:
-    sql-load-script: no-file
     database:
       generation: "drop-and-create"

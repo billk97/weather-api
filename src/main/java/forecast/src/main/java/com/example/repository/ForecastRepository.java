@@ -15,8 +15,6 @@ import javax.enterprise.context.ApplicationScoped;
 public class ForecastRepository implements PanacheRepository<Forecast> {
 
     public List<Forecast> findCurrentForecastForUser(long locationId, Set<Long> servicesIds){
-        System.out.println("yesterday: " + Instant.now().truncatedTo(ChronoUnit.DAYS).minus(1, ChronoUnit.DAYS));
-        System.out.println("tomorrow: " + Instant.now().truncatedTo(ChronoUnit.DAYS).plus(1, ChronoUnit.DAYS));
         Map<String, Object> params = new HashMap<>();
         params.put("locationId", locationId);
         params.put("serviceIds", servicesIds);
@@ -33,5 +31,35 @@ public class ForecastRepository implements PanacheRepository<Forecast> {
 
     public List<Forecast> findForecastByLocation(Location location) {
         return list("location", location);
+    }
+
+    public List<Forecast> findNextDaysForecast(long locationId, Set<Long> forecastProviderIds, int numberOfDays) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("locationId", locationId);
+        params.put("forecastProviderIds", forecastProviderIds);
+        params.put("yesterday", Instant.now().truncatedTo(ChronoUnit.DAYS).minus(1, ChronoUnit.DAYS));
+        params.put("until", Instant.now().truncatedTo(ChronoUnit.DAYS).plus(numberOfDays, ChronoUnit.DAYS));
+        return list("location_id = :locationId " +
+            "and " +
+            "forecast_provider_id in (:forecastProviderIds) " +
+            "and " +
+            "(iso_time > :yesterday " +
+            "and " +
+            "iso_time < :until) ", params);
+    }
+
+    public List<Forecast> findNextHoursForecast(long locationId, Set<Long> forecastProviderIds, int numberOfHours) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("locationId", locationId);
+        params.put("forecastProviderIds", forecastProviderIds);
+        params.put("now", Instant.now());
+        params.put("until", Instant.now().plus(numberOfHours, ChronoUnit.HOURS));
+        return list("location_id = :locationId " +
+            "and " +
+            "forecast_provider_id in (:forecastProviderIds) " +
+            "and " +
+            "(iso_time >= :now " +
+            "and " +
+            "iso_time <= :until) ", params);
     }
 }

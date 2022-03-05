@@ -12,9 +12,9 @@ import com.example.dtos.out.ObjectIdDTO;
 import com.example.enums.WeatherCategory;
 import com.example.repository.ForecastRepository;
 import com.example.repository.LocationRepository;
+import com.example.usecases.forecast.CreateForecast;
 import io.quarkus.test.junit.QuarkusTest;
 import java.time.Instant;
-import java.time.temporal.ChronoUnit;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import org.junit.jupiter.api.AfterEach;
@@ -29,12 +29,12 @@ import org.junit.jupiter.api.Test;
 public class CreateForecastTests {
 
     @Inject
-    private ForecastRepository forecastRepository;
+    ForecastRepository forecastRepository;
     @Inject
-    private LocationRepository locationRepository;
+    LocationRepository locationRepository;
 
     @Inject
-    private CreateForecast createForecast;
+    CreateForecast createForecast;
 
     private Location location = new Location("Athens", 0.0, 0.0);
 
@@ -57,6 +57,7 @@ public class CreateForecastTests {
             1,
             1,
             WeatherCategory.Cold,
+            1,
             1
         );
 
@@ -73,6 +74,7 @@ public class CreateForecastTests {
             1,
             1,
             WeatherCategory.Cold,
+            1,
             9999
         );
 
@@ -90,6 +92,7 @@ public class CreateForecastTests {
             1,
             1,
             WeatherCategory.Cold,
+            1,
             location.getLocationId()
         );
         ObjectIdDTO idDTO = createForecast.command(dto);
