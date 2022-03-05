@@ -10,12 +10,14 @@ import com.example.dtos.out.ObjectIdDTO;
 import com.example.repository.UserRepository;
 import com.example.usecases.RegisterUserResource;
 
+import java.util.ArrayList;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 import java.util.Optional;
+import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 @Path("api/users")
 @ApplicationScoped
@@ -30,10 +32,12 @@ public class UserResource {
     RegisterUserResource registerUser;
 
     @Inject
-    ForecastProviderPort forecastProviderPort; // TODO remove it when add the REST CLIENT
+    @RestClient
+    ForecastProviderPort forecastProviderPort;
 
     @Inject
-    LocationPort locationPort; // TODO remove it when add the REST CLIENT
+    @RestClient
+    LocationPort locationPort;
 
     /**
      * Create a new user
@@ -59,6 +63,11 @@ public class UserResource {
         return user;
     }
 
+    @GET
+    public List<User> getUserById() {
+        return userRepository.findAll().stream().toList();
+    }
+
 
     /**
      * Get location
@@ -82,6 +91,7 @@ public class UserResource {
      * @param id user's id
      * @returns
      */
+
     @GET
     @Path("forecast-providers/{id}")
     public List<ServiceProviderDTO> getForecastProviders(@PathParam("id") Long id) {
@@ -89,7 +99,10 @@ public class UserResource {
         if(user == null){
             throw new IllegalArgumentException(String.format("User with name: %s does not exist", id));
         }
-        List<ServiceProviderDTO> forecastProviders = forecastProviderPort.findUserForecastProviders((List<Long>) user.getForecastProviderIds());
+        List<ServiceProviderDTO> forecastProviders = new ArrayList<>();
+        for(Long forecastProvidersId : user.getForecastProviderIds()) {
+            forecastProviders.add(forecastProviderPort.findForecastProviderById(forecastProvidersId));
+        }
         return forecastProviders;
     }
 

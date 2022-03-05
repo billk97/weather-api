@@ -1,12 +1,19 @@
 package com.example.adapters.serviceProviders.ports;
 
-import com.example.adapters.location.dtos.LocationDTO;
 import com.example.adapters.serviceProviders.dtos.ServiceProviderDTO;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.core.MediaType;
+import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
-import java.util.List;
-import java.util.Optional;
-
+@Path("/api")
+@RegisterRestClient(configKey = "forecast-provider-api/")
 public interface ForecastProviderPort {
-    List<ServiceProviderDTO> findUserForecastProviders(List<Long> forecastProvidersIds);
 
+
+    @GET
+    @Path("/forecast-provider/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    ServiceProviderDTO findForecastProviderById(Long forecastProvidersId);
 }

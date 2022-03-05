@@ -1,6 +1,5 @@
 package com.example.adapters.forecastprovider;
 
-import com.example.adapters.users.dtos.UserDTO;
 import java.util.Optional;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
