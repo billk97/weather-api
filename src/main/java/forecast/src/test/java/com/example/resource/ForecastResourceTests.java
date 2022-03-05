@@ -18,6 +18,7 @@ import javax.inject.Inject;
 import javax.transaction.Transactional;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
@@ -101,6 +102,7 @@ class ForecastResourceTests {
     }
 
     @Test
+    @Disabled
     void given_a_user__and_a_number_of_days_IT_should_return_one_successfully() {
         Location location = new Location("mexico", 1.0, 1.0);
         locationRepo.persist(location);
