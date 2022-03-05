@@ -1,14 +1,16 @@
 package com.example.dtos.in;
 
+import com.example.domain.ForecastProvider;
+import com.example.domain.Location;
 import com.example.enums.WeatherCategory;
 import java.time.Instant;
 
 public record CreateForecastDTO(
-        Instant forecastTime,
+        String forecastTime,
         int temperature,
         float humidity,
         int wind,
-        long forecastProviderId,
         WeatherCategory weatherCategory,
+        long providerId,
         long locationId) {
 }

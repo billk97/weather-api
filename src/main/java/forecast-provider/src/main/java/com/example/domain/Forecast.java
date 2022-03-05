@@ -68,14 +68,14 @@ public class Forecast {
         this.location = location;
     }
 
-    public Forecast(CreateForecastDTO dto, Location location, ForecastProvider forecastProvider) {
-        this.isoTime = dto.forecastTime();
+    public Forecast(CreateForecastDTO dto, Location location, ForecastProvider provider) {
+        this.isoTime = Instant.parse(dto.forecastTime());
         this.temperature = dto.temperature();
         this.humidity = dto.humidity();
         this.wind = dto.wind();
         this.weatherCategory = dto.weatherCategory();
         this.location = location;
-        this.forecastProvider = forecastProvider;
+        this.forecastProvider = provider;
     }
 
     /**

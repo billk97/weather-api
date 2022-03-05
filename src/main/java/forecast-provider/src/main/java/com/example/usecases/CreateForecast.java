@@ -34,11 +34,11 @@ public class CreateForecast {
             );
         }
 
-        ForecastProvider forecastProvider = forecastProviderRepo.findById(dto.forecastProviderId());
+        ForecastProvider forecastProvider = forecastProviderRepo.findById(dto.providerId());
 
         if(forecastProvider == null) {
             throw new IllegalArgumentException(
-                    String.format("Forecast Provider with id: %d was not found", dto.forecastProviderId())
+                    String.format("Forecast Provider with id: %d was not found", dto.providerId())
             );
         }
 

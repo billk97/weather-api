@@ -38,7 +38,7 @@ class ForecastProviderResourceTest {
 
     @BeforeEach
     void init() {
-//        providerRepo.deleteAll();
+        providerRepo.deleteAll();
         ForecastProvider provider = new ForecastProvider("Meteo", "The most inaccurate forecast provider in Greece!");
         providerRepo.persist(provider);
     }
