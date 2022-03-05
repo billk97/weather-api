@@ -13,15 +13,17 @@ import org.junit.jupiter.api.*;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
-import javax.xml.crypto.Data;
-
-import java.sql.Date;
+import javax.transaction.UserTransaction;
 import java.time.Instant;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.any;
 
 import static io.restassured.RestAssured.given;
-
-import static org.junit.jupiter.api.Assertions.*;
 @QuarkusTest
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 @Transactional
@@ -33,7 +35,10 @@ class ForecastResourceTests {
     @Inject
     ForecastRepository forecastRepo;
 
+
     private Location location;
+
+    private Forecast forecast;
 
     @BeforeEach
     void init() {
@@ -41,6 +46,7 @@ class ForecastResourceTests {
         locationRepo.deleteAll();
         location = new Location("athens", 0,0);
         locationRepo.persist(location);
+        forecast = createForecast(location);
     }
 
     @AfterEach
@@ -64,8 +70,7 @@ class ForecastResourceTests {
     void given_a_forecast_IT_should_return_it() {
         Location location = new Location("mexico", 1.0, 1.0);
         locationRepo.persist(location);
-        Forecast forecast = new Forecast(Instant.now(), 1, 1L, 1, WeatherCategory.Cold, location, 1L);
-        forecastRepo.persist(forecast);
+        createForecast(location);
         given().when().get().then().statusCode(200);
     }
 
@@ -147,6 +152,35 @@ class ForecastResourceTests {
                 .get("days/{numberOfDays}/summary")
                 .then()
                 .statusCode(200);
+    }
+
+    @Test
+    void given_a_location_id_IT_should_return_all_related_forecast() {
+        List<Forecast> returned = Arrays.stream(given()
+                .pathParam("locationId", location.getLocationId())
+                .when()
+                .get("locations/{locationId}")
+                .then()
+                .statusCode(200).extract().body().as(Forecast[].class)).toList();
+        assertEquals(1, returned.size());
+    }
+
+    @Test
+    void given_a_forecast_id_IT_should_delete_it_successfully() {
+
+
+        given()
+                .pathParam("forecastId", forecast.getId())
+                .when()
+                .delete("{forecastId}")
+                .then()
+                .statusCode(204);
+    }
+
+    private Forecast createForecast(Location location) {
+        Forecast forecast = new Forecast(Instant.now(), 1, 1L, 1, WeatherCategory.Cold, location, 1L);
+        forecastRepo.persist(forecast);
+        return forecast;
     }
 
 }
