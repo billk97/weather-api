@@ -6,8 +6,6 @@ name: forecast-build-and-tests
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
   build:
@@ -22,8 +20,6 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-#     - name: compilation
-#       run: cd src/main/java/forecast && ./mvnw compile quarkus:build
     - name: Tests
       run: cd src/main/java/forecast && ./mvnw package  "-Dquarkus.profile=test"
 

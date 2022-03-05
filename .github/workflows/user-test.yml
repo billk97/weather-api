@@ -1,12 +1,10 @@
 # This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
 
-name: forecast-build-and-tests
+name: user-build-and-tests
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
     branches: [ master ]
 
 jobs:
@@ -22,8 +20,6 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-#     - name: compilation
-#       run: cd src/main/java/forecast && ./mvnw compile quarkus:build
     - name: Tests
-      run: cd src/main/java/forecast && ./mvnw package  "-Dquarkus.profile=test"
+      run: cd src/main/java/user && ./mvnw package  "-Dquarkus.profile=test"
 

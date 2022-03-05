@@ -1,4 +1,6 @@
-![master build passed](https://github.com/billk97/weather-api/workflows/build-test/badge.svg)
+![master build passed](https://github.com/billk97/weather-api/workflows/forecast-provider-build-and-tests/badge.svg)
+![master build passed](https://github.com/billk97/weather-api/workflows/forecast-build-and-tests/badge.svg)
+![master build passed](https://github.com/billk97/weather-api/workflows/user-build-and-test/badge.svg)
 ![Coverage](.github/badges/jacoco.svg)
 ![issues](https://img.shields.io/github/issues/billk97/weather-api.svg)
 
