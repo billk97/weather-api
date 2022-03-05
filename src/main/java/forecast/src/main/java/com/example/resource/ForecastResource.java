@@ -96,7 +96,7 @@ public class ForecastResource {
         return getCurrentForecastForUser.query(userId);
     }
 
-    @Deprecated
+
     @GET
     @Path("hours/{numberOfHours}")
     public Forecast getUsersForecastsForTheNextHours(
@@ -116,7 +116,6 @@ public class ForecastResource {
     }
 
 
-    @Deprecated
     @GET
     @Path("days/{numberOfDays}/summary")
     public List<ForecastSummaryDTO> getUsersForecastsSummaryForTheNextDays(
@@ -125,17 +124,15 @@ public class ForecastResource {
         return getUsersForecastForTheNextDaysSummary.query(userId, numberOfDays);
     }
 
-    @Deprecated
     @GET
-    @Path("days/{numberOfDays}/summary")
+    @Path("hours/{numberOfHours}/summary")
     public List<ForecastSummaryDTO> getUsersForecastsSummaryForTheNextHours(
-        @PathParam("numberOfDays") String numberOfDays,
+        @PathParam("numberOfHours") String numberOfHours,
         @QueryParam("userId") String userId) {
-        return getUsersForecastForTheNextHoursSummary.query(userId, numberOfDays);
+        return getUsersForecastForTheNextHoursSummary.query(userId, numberOfHours);
     }
 
 
-    @Deprecated
     @GET
     @Path("warn")
     public Forecast getUserWarnings(

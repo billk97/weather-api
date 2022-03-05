@@ -98,7 +98,7 @@ public class Rating {
      *
      * @return the user
      */
-    public long getUser(){
+    public long getUserId(){
         return userId;
     }
 
