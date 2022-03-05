@@ -25,4 +25,5 @@ jobs:
 #     - name: compilation
 #       run: cd src/main/java/forecast && ./mvnw compile quarkus:build
     - name: Tests
-      run: cd src/main/java/forecast && ./mvnw package quarkus:test
+      run: cd src/main/java/forecast && ./mvnw package  "-Dquarkus.profile=test"
+
