@@ -2,6 +2,7 @@
 ![Coverage](.github/badges/jacoco.svg)
 ![issues](https://img.shields.io/github/issues/billk97/weather-api.svg)
 
+
 # INF138 Weather app
 Η εφαρμογή αναπτύσσεται στα πλαίσια εργασίας στο μάθημα "ΠΡΟΗΓΜΕΝΕΣ ΜΕΘΟΔΟΙ ΑΝΑΠΤΥΞΗΣ ΛΟΓΙΣΜΙΚΟΥ"
 
