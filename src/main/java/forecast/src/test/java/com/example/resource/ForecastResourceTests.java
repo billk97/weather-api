@@ -1,5 +1,8 @@
 package com.example.resource;
 
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.is;
+
 import com.example.domain.Forecast;
 import com.example.domain.Location;
 import com.example.dtos.in.CreateForecastDTO;
@@ -9,21 +12,16 @@ import com.example.repository.LocationRepository;
 import io.quarkus.test.common.http.TestHTTPEndpoint;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
-import org.junit.jupiter.api.*;
-
-import javax.inject.Inject;
-import javax.transaction.Transactional;
-import javax.transaction.UserTransaction;
 import java.time.Instant;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
-import java.util.List;
+import javax.inject.Inject;
+import javax.transaction.Transactional;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.ArgumentMatchers.any;
-
-import static io.restassured.RestAssured.given;
 @QuarkusTest
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 @Transactional
@@ -156,13 +154,14 @@ class ForecastResourceTests {
 
     @Test
     void given_a_location_id_IT_should_return_all_related_forecast() {
-        List<Forecast> returned = Arrays.stream(given()
+        given()
                 .pathParam("locationId", location.getLocationId())
                 .when()
                 .get("locations/{locationId}")
                 .then()
-                .statusCode(200).extract().body().as(Forecast[].class)).toList();
-        assertEquals(1, returned.size());
+                .statusCode(200)
+                .assertThat()
+                .body("size()", is(1));
     }
 
     @Test

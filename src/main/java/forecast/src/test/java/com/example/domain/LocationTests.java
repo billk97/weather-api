@@ -4,11 +4,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class LocationTests {
-
 
     private Location location;
 
@@ -38,5 +38,12 @@ public class LocationTests {
     void given_different_location_name_should_fail(){
         Location newLocation = new Location("Thessaloniki", 0.0, 0.0);
         assertFalse(location.equals(newLocation));
+    }
+    @Test
+    void given_test_equals_works() {
+        Location location = new Location();
+        Location location2 = new Location();
+        assertEquals(location, location2);
+
     }
 }
