@@ -23,6 +23,7 @@ jobs:
       id: jacoco
       uses: cicirello/jacoco-badge-generator@v2
       with:
+        coverage-badge-filename: forecast-provider-jacoco.svg
         generate-branches-badge: true
     - name: Log coverage percentage
       run: |
@@ -40,4 +41,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: jacoco-report
-        path: target/site/jacoco/
+        path: src/main/java/forecast-provider/target/site/jacoco/
