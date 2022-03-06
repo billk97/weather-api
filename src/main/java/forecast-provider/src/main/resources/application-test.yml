@@ -1,0 +1,15 @@
+greeting:
+  message: "hello"
+quarkus:
+  http:
+    test-port: 5003
+  datasource:
+    db-kind: h2
+    username: sa
+    password: root
+    jdbc:
+      url: jdbc:h2:mem:forecast_provider
+  hibernate-orm:
+    sql-load-script: no-file
+    database:
+      generation: "drop-and-create"
