@@ -12,7 +12,7 @@ import org.eclipse.microprofile.rest.client.inject.RestClient;
 @Priority(1)
 @ApplicationScoped
 @RestClient
-class LocationStub implements LocationPort{
+public class LocationStub implements LocationPort{
 
     @Override
     public Optional<LocationDTO> findLocationById(Long locationId) {

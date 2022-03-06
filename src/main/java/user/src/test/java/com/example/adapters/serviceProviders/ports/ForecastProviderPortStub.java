@@ -10,7 +10,7 @@ import org.eclipse.microprofile.rest.client.inject.RestClient;
 @Priority(1)
 @ApplicationScoped
 @RestClient
-class ForecastProviderPortStub implements  ForecastProviderPort {
+public class ForecastProviderPortStub implements  ForecastProviderPort {
     @Override
     public ServiceProviderDTO findForecastProviderById(Long forecastProvidersId) {
         return new ServiceProviderDTO(1l, "meteo", "ameteodescription");

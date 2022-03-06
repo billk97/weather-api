@@ -8,7 +8,7 @@ import javax.ws.rs.core.MediaType;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 @Path("/api")
-@RegisterRestClient(configKey = "forecast-provider-api/")
+@RegisterRestClient(configKey = "forecast-provider-api")
 public interface ForecastProviderPort {
 
 
