@@ -1,4 +1,6 @@
-package com.example.adapters.forecastprovider;
+package com.example.adapters.location.ports;
+
+import com.example.adapters.location.dtos.LocationDTO;
 
 import java.util.Optional;
 import javax.ws.rs.Consumes;
@@ -9,11 +11,11 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 @Path("/api")
-@RegisterRestClient(configKey = "forecast-provider-api/")
-public interface ForecastProviderPort {
+@RegisterRestClient(configKey = "forecast-api")
+public interface LocationPort {
 
     @GET
-    @Path("/forecast-provider/{id}")
+    @Path("/forecast/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
-    Optional<Object> findForecastProviderById(@PathParam("id") String id);
+    Optional<LocationDTO> findLocationById(@PathParam("id") Long locationId);
 }

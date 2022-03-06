@@ -78,13 +78,13 @@ class ForecastTests {
         assertEquals(expectedWind, forecast.getWind());
     }
     @Test
-    void given_a_forecast_higth_temp_weather_should_be_bad(){
+    void given_a_forecast_height_temp_weather_should_be_bad(){
         Forecast forecast = new Forecast();
         forecast.setTemperature(4);
         assertTrue(forecast.isBadWeather());
     }
     @Test
-    void given_a_forecast_weather_hight_wind_should_be_bad(){
+    void given_a_forecast_weather_height_wind_should_be_bad(){
         Forecast forecast = new Forecast();
         forecast.setTemperature(4);
         assertTrue(forecast.isBadWeather());
