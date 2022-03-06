@@ -3,8 +3,8 @@
 ![master build passed](https://github.com/billk97/weather-api/workflows/forecast-build-and-tests/badge.svg)
 ![master build passed](https://github.com/billk97/weather-api/workflows/user-build-and-tests/badge.svg)
 -------
-forecast-provider ![Coverage-forecast-provider](.github/badges/forecat-provider-jacoco.svg)
-forecast service ![Coverage-forecast](.github/badges/forecat-jacoco.svg)
+forecast-provider ![Coverage-forecast-provider](.github/badges/forecast-provider-jacoco.svg)
+forecast service ![Coverage-forecast](.github/badges/forecast-jacoco.svg)
 user service ![Coverage-user](.github/badges/user-jacoco.svg)
 
 -----
