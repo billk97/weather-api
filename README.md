@@ -5,8 +5,8 @@
 -------
 <!-- ![Coverage-forecast-provider](.github/badges/jacoco.svg) -->
 ![Coverage-forecast](.github/badges/jacoco.svg)
-<!--
-![Coverage-user](.github/badges/jacoco.svg) -->
+
+![Coverage-user](.github/badges/user-jacoco.svg)
 -----
 ![issues](https://img.shields.io/github/issues/billk97/weather-api.svg)
 
