@@ -26,9 +26,11 @@ public class User {
     @Column(name = "location_id")
     private long locationId;
 
-    @Column(name = "forecast_provider_ids")
-    @ElementCollection
-    private Set<Long> forecastProviderIds = new HashSet<>();
+    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch=FetchType.LAZY)
+    @JoinTable(name = "user_forecast_provider",
+        joinColumns = {@JoinColumn(name="user_id")},
+        inverseJoinColumns = {@JoinColumn(name="forecast_provider_id")})
+    private Set<ForecastProvider> forecastProviderIds = new HashSet<>();
 
     /**
      * Instantiates a new User.
@@ -49,7 +51,7 @@ public class User {
      * @param forecastProviderIds the service ids
      */
 
-    public User(String name, String password, long locationId, Set<Long> forecastProviderIds) {
+    public User(String name, String password, long locationId, Set<ForecastProvider> forecastProviderIds) {
         this.name = name;
         this.password = password;
         this.locationId = locationId;
@@ -119,21 +121,21 @@ public class User {
      */
     public void setLocationId(long locationId) {this.locationId = locationId;}
 
+    public Set<ForecastProvider> getForecastProviders() {
+        return forecastProviderIds;
+    }
+
+    public void setForecastProviderIds(
+        Set<ForecastProvider> forecastProviderIds) {
+        this.forecastProviderIds = forecastProviderIds;
+    }
+
     /**
      * HashSet forecastProviderIds
      * @param
      * @return Set<Long>
      */
-    public Set<Long> getForecastProviderIds() {return forecastProviderIds;}
 
-    /**
-     * Set serviceIds
-     * @param forecastProviderIds the forecastProviderIds
-     * @return
-     */
-    public void setForecastProviderIds(Set<Long> forecastProviderIds) {
-        this.forecastProviderIds = forecastProviderIds;
-    }
 
     @Override
     public boolean equals(Object o) {

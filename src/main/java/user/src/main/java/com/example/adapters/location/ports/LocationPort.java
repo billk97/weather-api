@@ -15,7 +15,7 @@ import org.jboss.resteasy.annotations.jaxrs.PathParam;
 public interface LocationPort {
 
     @GET
-    @Path("/forecast/{id}")
+    @Path("/forecasts/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
-    Optional<LocationDTO> findLocationById(@PathParam("id") Long locationId);
+    Optional<LocationDTO> findLocationById(@PathParam Long id);
 }

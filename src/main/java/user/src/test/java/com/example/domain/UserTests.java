@@ -13,7 +13,7 @@ class UserTests {
     private User user, newUser;
 
 
-    Set<Long> serviceIds;
+    Set<ForecastProvider> serviceIds;
 
     long locationId;
 
@@ -71,7 +71,7 @@ class UserTests {
         assertEquals(exceptedName, user.getName());
         assertEquals(expectedPassword, user.getPassword());
         assertEquals(locationId, user.getLocationId());
-        assertEquals(serviceIds, user.getForecastProviderIds());
+        assertEquals(serviceIds, user.getForecastProviders());
     }
 
     @Test

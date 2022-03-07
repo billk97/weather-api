@@ -4,13 +4,17 @@ import com.example.adapters.location.dtos.LocationDTO;
 import com.example.adapters.location.ports.LocationPort;
 import com.example.adapters.serviceProviders.dtos.ServiceProviderDTO;
 import com.example.adapters.serviceProviders.ports.ForecastProviderPort;
+import com.example.domain.ForecastProvider;
 import com.example.domain.User;
 import com.example.dtos.in.RegisterUserDTO;
 import com.example.dtos.out.ObjectIdDTO;
+import com.example.dtos.out.UserDTO;
 import com.example.repository.UserRepository;
 import com.example.usecases.RegisterUserResource;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -55,12 +59,18 @@ public class UserResource {
      */
     @GET
     @Path("{id}")
-    public User getUserById(@PathParam("id") String id) {
+    public UserDTO getUserById(@PathParam("id") String id) {
         User user = userRepository.findById(Long.valueOf(id));
         if(user == null) {
             throw new IllegalArgumentException(String.format("User with id: %s does not exist", id));
         }
-        return user;
+        Set<Long> forecastProviders = new HashSet<>();
+        for(ForecastProvider fp : user.getForecastProviders()) {
+            forecastProviders.add(fp.getProviderId());
+        }
+
+        UserDTO dto = new UserDTO(user.getId(), user.getName(), user.getLocationId(), forecastProviders);
+        return dto;
     }
 
     @GET
@@ -100,8 +110,8 @@ public class UserResource {
             throw new IllegalArgumentException(String.format("User with name: %s does not exist", id));
         }
         List<ServiceProviderDTO> forecastProviders = new ArrayList<>();
-        for(Long forecastProvidersId : user.getForecastProviderIds()) {
-            forecastProviders.add(forecastProviderPort.findForecastProviderById(forecastProvidersId));
+        for(ForecastProvider fp : user.getForecastProviders()) {
+            forecastProviders.add(forecastProviderPort.findForecastProviderById(String.valueOf(fp.getId())));
         }
         return forecastProviders;
     }
