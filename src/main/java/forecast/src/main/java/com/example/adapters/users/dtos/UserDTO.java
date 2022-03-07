@@ -5,8 +5,8 @@ import com.example.exceptions.IllegalArgumentExceptionWithCode;
 import java.util.Set;
 
 public record UserDTO(
-    long userId,
-    String username,
+    long id,
+    String name,
     long locationId,
     Set<Long> forecastProviderIds) {
 
