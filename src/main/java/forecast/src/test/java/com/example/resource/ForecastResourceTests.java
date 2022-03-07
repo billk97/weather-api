@@ -94,7 +94,7 @@ class ForecastResourceTests {
         Location location = new Location("mexico", 1.0, 1.0);
         locationRepo.persist(location);
         given()
-                .queryParam("id",  1)
+                .queryParam("userId",  1)
                 .when()
                 .get("current")
                 .then()
@@ -108,7 +108,7 @@ class ForecastResourceTests {
         locationRepo.persist(location);
         given()
                 .pathParam("numberOfDays", "2")
-                .queryParam("id",  "1")
+                .queryParam("userId",  "1")
                 .when()
                 .get("days/{numberOfDays}")
                 .then()
@@ -121,7 +121,7 @@ class ForecastResourceTests {
         locationRepo.persist(location);
         given()
                 .pathParam("numberOfHours", "2")
-                .queryParam("id",  "1")
+                .queryParam("userId",  "1")
                 .when()
                 .get("hours/{numberOfHours}")
                 .then()
@@ -134,7 +134,7 @@ class ForecastResourceTests {
         locationRepo.persist(location);
         given()
                 .pathParam("numberOfHours", "1")
-                .queryParam("id",  "1")
+                .queryParam("userId",  "1")
                 .when()
                 .get("hours/{numberOfHours}/summary")
                 .then()
@@ -147,7 +147,7 @@ class ForecastResourceTests {
         locationRepo.persist(location);
         given()
                 .pathParam("numberOfDays", "2")
-                .queryParam("id",  "1")
+                .queryParam("userId",  "1")
                 .when()
                 .get("days/{numberOfDays}/summary")
                 .then()
