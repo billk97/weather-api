@@ -2,6 +2,7 @@ package com.example.domain;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import com.example.dtos.in.RegisterUserDTO;
 import java.util.HashSet;
 import java.util.Set;
 import org.junit.jupiter.api.BeforeEach;
@@ -73,5 +74,14 @@ class UserTests {
         assertEquals(serviceIds, user.getForecastProviderIds());
     }
 
+    @Test
+    void given_a_dto_IT_should_create_a_user_successfully() {
+        RegisterUserDTO dto = new RegisterUserDTO("pass", "bill", 1);
+        User user = new User(dto);
+        assertEquals(dto.name(), user.getName());
+        User use2r = new User("name", "name");
+        assertEquals(dto.name(), user.getName());
+
+    }
 
 }
