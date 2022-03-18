@@ -1,6 +1,6 @@
 package com.example.usecases;
 
-import com.example.adapters.forecasts.ForecastPort;
+import com.example.adapters.ForecastPort;
 import com.example.domain.Forecast;
 import com.example.repositories.ForecastRepository;
 import org.eclipse.microprofile.rest.client.inject.RestClient;

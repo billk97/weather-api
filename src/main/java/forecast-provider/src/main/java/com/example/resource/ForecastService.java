@@ -19,8 +19,6 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 public class ForecastService {
 
-    @Inject
-    ForecastRepository forecastRepo;
 
     @Inject
     CreateForecast createForecast;

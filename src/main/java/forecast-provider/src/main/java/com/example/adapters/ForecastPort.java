@@ -1,4 +1,4 @@
-package com.example.adapters.forecasts;
+package com.example.adapters;
 
 import com.example.domain.Forecast;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
