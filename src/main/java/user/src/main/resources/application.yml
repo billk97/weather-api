@@ -13,7 +13,7 @@ quarkus:
     username: root
     password: root
     jdbc:
-      url: jdbc:mysql://localhost:3307/weather_api_user
+      url: jdbc:mysql://users-db:3306/weather_api_user
   hibernate-orm:
     database:
       generation: "drop-and-create"

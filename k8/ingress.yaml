@@ -1,0 +1,33 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: minimal-ingress
+  namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /api/forecasts
+            pathType: Prefix
+            backend:
+              service:
+                name: forecast-service
+                port:
+                  number: 5000
+          - path: /api/locations
+            pathType: Prefix
+            backend:
+              service:
+                name: forecast-service
+                port:
+                  number: 5000
+          - path: /api/ratings
+            pathType: Prefix
+            backend:
+              service:
+                name: forecast-service
+                port:
+                  number: 5000

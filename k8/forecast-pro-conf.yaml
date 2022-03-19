@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: weather-api-provider
+  labels:
+    app: quarkus-forcast-pro
+    api: quarkus-forcast-pro-api
+spec:
+  containers:
+    - name: forecast-provider
+      image: unipasssbackend/forecast-provider:latest
+      ports:
+        - containerPort: 5200
+          name: http
+          protocol: TCP
+      readinessProbe:
+        httpGet:
+          path: /q/health/ready
+          port: 5200
+        initialDelaySeconds: 3
+        periodSeconds: 3
+      livenessProbe:
+        httpGet:
+          path: /q/health/live
+          port: 5200
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: forecast-pro-service
+  labels:
+    tier: backend
+    app: quarkus-forcast-pro
+spec:
+  ports:
+    - port: 5200
+      targetPort: 5200
+  selector:
+    api: quarkus-forcast-pro-api

@@ -14,7 +14,7 @@ quarkus:
     username: root
     password: root
     jdbc:
-      url: jdbc:mysql://:3306/forecast_provider
+      url: jdbc:mysql://forecast-pro-db:3306/forecast_provider
   hibernate-orm:
     sql-load-script: no-file
     database:
