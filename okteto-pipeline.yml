@@ -1,2 +1,3 @@
 deploy:
   - kubectl apply -f kub.yaml
+  - kubectl port-forward weather-api 5000:5000
