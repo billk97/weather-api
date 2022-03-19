@@ -21,7 +21,7 @@ spec:
         periodSeconds: 3
       livenessProbe:
         httpGet:
-          path: /q/health/liv
+          path: /q/health/live
           port: 5000
 ---
 apiVersion: v1
@@ -60,7 +60,7 @@ spec:
         periodSeconds: 3
       livenessProbe:
         httpGet:
-          path: /q/health/liv
+          path: /q/health/live
           port: 5200
 ---
 apiVersion: v1
@@ -70,7 +70,6 @@ metadata:
 spec:
   ports:
     - port: 3306
-      targetPort: 3307
   selector:
     app: mysql
   clusterIP: None
@@ -95,6 +94,8 @@ spec:
         - image: mysql:5.6
           name: mysql
           env:
+            - name: MYSQL_DATABASE
+              value: weather_api
             # Use secret in real usage
             - name: MYSQL_ROOT_PASSWORD
               value: root
