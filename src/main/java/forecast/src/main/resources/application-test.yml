@@ -7,6 +7,9 @@ forecast-provider-api/mp-rest/url: "http://localhost:5200"
 quarkus:
   http:
     test-port: 5003
+  test:
+    continuous-testing: enabled
+    display-tes-output: true
   datasource:
     db-kind: h2
     username: sa

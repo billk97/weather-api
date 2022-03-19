@@ -2,6 +2,7 @@ package com.example.domain;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.example.dtos.in.CreateForecastDTO;
@@ -77,13 +78,13 @@ class ForecastTests {
         assertEquals(expectedWind, forecast.getWind());
     }
     @Test
-    void given_a_forecast_higth_temp_weather_should_be_bad(){
+    void given_a_forecast_height_temp_weather_should_be_bad(){
         Forecast forecast = new Forecast();
         forecast.setTemperature(4);
         assertTrue(forecast.isBadWeather());
     }
     @Test
-    void given_a_forecast_weather_hight_wind_should_be_bad(){
+    void given_a_forecast_weather_height_wind_should_be_bad(){
         Forecast forecast = new Forecast();
         forecast.setTemperature(4);
         assertTrue(forecast.isBadWeather());
@@ -119,5 +120,22 @@ class ForecastTests {
         forecast.setWeatherCategory(WeatherCategory.Sunny);
         assertFalse(forecast.isBadWeather());
     }
+
+    @Test
+    void test_equals_works() {
+        Forecast forecast = new Forecast();
+        Forecast forecast2 = new Forecast();
+        assertEquals(forecast, forecast2);
+
+    }
+
+    @Test
+    void given_null_object_equals_should_fail(){
+        Forecast forecast1 = new Forecast();
+        Forecast forecast = null;
+        assertFalse(forecast1.equals(forecast));
+    }
+
+
 
 }

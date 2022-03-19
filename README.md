@@ -1,5 +1,13 @@
-![master build passed](https://github.com/billk97/weather-api/workflows/build-test/badge.svg)
-![Coverage](.github/badges/jacoco.svg)
+[![Quarkus](https://design.jboss.org/quarkus/logo/final/PNG/quarkus_logo_horizontal_rgb_1280px_default.png#gh-light-mode-only)](https://quarkus.io/#gh-light-mode-only)
+![master build passed](https://github.com/billk97/weather-api/workflows/forecast-provider-build-and-tests/badge.svg)
+![master build passed](https://github.com/billk97/weather-api/workflows/forecast-build-and-tests/badge.svg)
+![master build passed](https://github.com/billk97/weather-api/workflows/user-build-and-tests/badge.svg)
+-------
+forecast-provider ![Coverage-forecast-provider](.github/badges/forecast-provider-jacoco.svg)
+forecast service ![Coverage-forecast](.github/badges/forecast-jacoco.svg)
+user service ![Coverage-user](.github/badges/user-jacoco.svg)
+
+-----
 ![issues](https://img.shields.io/github/issues/billk97/weather-api.svg)
 
 # INF138 Weather app

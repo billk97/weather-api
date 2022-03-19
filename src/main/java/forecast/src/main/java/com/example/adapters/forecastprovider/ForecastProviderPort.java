@@ -1,6 +1,5 @@
 package com.example.adapters.forecastprovider;
 
-import com.example.adapters.users.dtos.UserDTO;
 import java.util.Optional;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -10,7 +9,7 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 @Path("/api")
-@RegisterRestClient(configKey = "forecast-provider-api/")
+@RegisterRestClient(configKey = "forecast-provider-api")
 public interface ForecastProviderPort {
 
     @GET
