@@ -36,5 +36,6 @@ metadata:
 spec:
   ports:
     - port: 5000
+      NodePort: 31000
   selector:
     api: quarkus-forcast-api
