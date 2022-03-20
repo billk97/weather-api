@@ -31,7 +31,7 @@ metadata:
   labels:
     tier: backend
     app: quarkus-forcast
-  anonotations:
+  annotations:
     dev.okteto.com/auto-ingress: "true"
 spec:
   ports:
