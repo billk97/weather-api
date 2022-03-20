@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: forecast-service
+  labels:
+    tier: backend
+    app: quarkus-forcast
+  annotations:
+    dev.okteto.com/auto-ingress: "true"
+spec:
+  type: NodePort
+  ports:
+    - port: 5000
+      nodePort: 31000
+  selector:
+    api: quarkus-forcast-api
