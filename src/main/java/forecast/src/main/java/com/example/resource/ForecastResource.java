@@ -27,6 +27,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import org.apache.commons.lang3.StringUtils;
+import org.eclipse.microprofile.metrics.MetricUnits;
+import org.eclipse.microprofile.metrics.annotation.Counted;
+import org.eclipse.microprofile.metrics.annotation.Timed;
 
 /**
  * The type Forecast resource.
@@ -73,6 +76,8 @@ public class ForecastResource {
     }
 
     @GET
+    @Counted(name = "performChecks", description = "a description")
+    @Timed(name = "checksTimer", unit = MetricUnits.MILLISECONDS)
     public List<Forecast> getAllForecasts() {
         return forecastRepo.findAll().stream().toList();
     }
