@@ -8,10 +8,9 @@ metadata:
   annotations:
     dev.okteto.com/auto-ingress: "true"
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
     - port: 5000
-      nodePort: 31000
       targetPort: 5000
   selector:
     api: quarkus-forcast-api
