@@ -5,6 +5,8 @@ metadata:
   labels:
     app: quarkus-forcast
     api: quarkus-forcast-api
+  anonotations:
+    dev.okteto.com/auto-ingress: "true"
 spec:
   containers:
     - name: forecast
@@ -34,6 +36,5 @@ metadata:
 spec:
   ports:
     - port: 5000
-      targetPort: 5000
   selector:
     api: quarkus-forcast-api
