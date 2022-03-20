@@ -8,7 +8,7 @@ metadata:
   annotations:
     dev.okteto.com/auto-ingress: "true"
 spec:
-  type: LoadBalancer
+  type: ClusterIp
   ports:
     - port: 5000
       targetPort: 5000
