@@ -40,3 +40,23 @@ spec:
       nodePort: 31000
   selector:
     api: quarkus-forcast-api
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forecast-service-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quarkus-forcast
+  template:
+    metadata:
+      labels:
+        app: quarkus-forcast
+    spec:
+      containers:
+        - image: unipasssbackend/forecast:latest
+          name: weather-api
+
