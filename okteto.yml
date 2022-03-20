@@ -1,0 +1,10 @@
+name: forecast-db
+image: okteto/maven:3
+command: bash
+sync:
+- .:/usr/src/app
+forward:
+- 5005:5005
+- 3306:3306
+volumes:
+- /root/.m2

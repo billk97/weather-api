@@ -4,27 +4,40 @@ metadata:
   name: minimal-ingress
 spec:
   rules:
-    - host: billk97.cloud.okteto.net
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: forecast-service
-                port:
-                  number: 5000
-          - path: /api/locations
-            pathType: Prefix
-            backend:
-              service:
-                name: forecast-service
-                port:
-                  number: 5000
-          - path: /api/ratings
-            pathType: Prefix
-            backend:
-              service:
-                name: forecast-service
-                port:
-                  number: 5000
+      - http:
+          paths:
+            - path: /api/forecast
+              pathType: Prefix
+              backend:
+                service:
+                  name: forecast-service
+                  port:
+                    number: 5000
+            - path: /api/locations
+              pathType: Prefix
+              backend:
+                service:
+                  name: forecast-service
+                  port:
+                    number: 5000
+            - path: /api/ratings
+              pathType: Prefix
+              backend:
+                service:
+                  name: forecast-service
+                  port:
+                    number: 5000
+            - path: /api/users
+              pathType: Prefix
+              backend:
+                service:
+                  name: users-service
+                  port:
+                    number: 5100
+            - path: /api/forecast-providers
+              pathType: Prefix
+              backend:
+                service:
+                  name: forecast-pro-service
+                  port:
+                    number: 5200
