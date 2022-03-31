@@ -1,8 +1,9 @@
 server:
   api-prefix: /api
 
-user-api/mp-rest/url: "http://localhost:5100"
-forecast-provider-api/mp-rest/url: "http://localhost:5200"
+user-api/mp-rest/url: "http://users-service:5100"
+forecast-provider-api/mp-rest/url: "http://forecast-pro-service:5200"
+forecast-api/mp-rest/url: "http://forecast-service:5000"
 
 quarkus:
   http:
@@ -12,7 +13,7 @@ quarkus:
     username: root
     password: root
     jdbc:
-      url: jdbc:mysql://localhost:3307/weather_api
+      url: jdbc:mysql://forecast-db:3306/weather_api
   hibernate-orm:
     database:
       generation: "drop-and-create"

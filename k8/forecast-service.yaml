@@ -8,9 +8,10 @@ metadata:
   annotations:
     dev.okteto.com/auto-ingress: "true"
 spec:
-  type: ClusterIp
+  type: NodePort
   ports:
     - port: 5000
       targetPort: 5000
+      nodePort: 31000
   selector:
     api: quarkus-forcast-api

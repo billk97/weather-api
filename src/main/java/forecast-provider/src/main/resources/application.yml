@@ -2,9 +2,9 @@ greeting:
   message: "hello"
 
 
-user-api/mp-rest/url: "http://localhost:5100"
-forecast-provider-api/mp-rest/url: "http://localhost:5200"
-forecast-api/mp-rest/url: "http://localhost:5000"
+user-api/mp-rest/url: "http://users-service:5100"
+forecast-provider-api/mp-rest/url: "http://forecast-pro-service:5200"
+forecast-api/mp-rest/url: "http://forecast-service:5000"
 
 quarkus:
   http:
@@ -16,6 +16,5 @@ quarkus:
     jdbc:
       url: jdbc:mysql://forecast-pro-db:3306/forecast_provider
   hibernate-orm:
-    sql-load-script: no-file
     database:
       generation: "drop-and-create"

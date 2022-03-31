@@ -6,10 +6,9 @@ metadata:
     dev.okteto.com/generate-host: "true"
 spec:
   rules:
-    - host: billk97.cloud.okteto.net
-      http:
+    - http:
         paths:
-          - path: /api/forecast
+          - path: /api/forecasts
             pathType: Prefix
             backend:
               service:
