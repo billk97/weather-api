@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: forecast-db
+spec:
+  ports:
+    - port: 3306
+  selector:
+    app: forecast-db
+  clusterIP: None
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forecast-db
+spec:
+  selector:
+    matchLabels:
+      app: forecast-db
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: forecast-db
+    spec:
+      containers:
+        - image: mysql:5.6
+          name: forecast-db
+          env:
+            - name: MYSQL_DATABASE
+              value: weather_api
+            # Use secret in real usage
+            - name: MYSQL_ROOT_PASSWORD
+              value: root
+          ports:
+            - containerPort: 3306
+              name: forecast-db

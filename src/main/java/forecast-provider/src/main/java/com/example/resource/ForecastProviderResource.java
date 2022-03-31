@@ -14,6 +14,9 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
+import org.eclipse.microprofile.metrics.MetricUnits;
+import org.eclipse.microprofile.metrics.annotation.Counted;
+import org.eclipse.microprofile.metrics.annotation.Timed;
 
 @Path("api/forecast-providers")
 @ApplicationScoped
@@ -37,6 +40,8 @@ public class ForecastProviderResource {
     UpdateForecasts updateForecasts;
 
     @GET
+    @Counted(name = "performChecks", description = "a description")
+    @Timed(name = "checksTimer", unit = MetricUnits.MILLISECONDS)
     public List<ForecastProvider> getAllProviders() {
         return forecastProviderRepo.findAll().stream().toList();
     }

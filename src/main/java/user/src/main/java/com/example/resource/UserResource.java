@@ -21,6 +21,9 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 import java.util.Optional;
+import org.eclipse.microprofile.metrics.MetricUnits;
+import org.eclipse.microprofile.metrics.annotation.Counted;
+import org.eclipse.microprofile.metrics.annotation.Timed;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 @Path("api/users")
@@ -68,12 +71,12 @@ public class UserResource {
         for(ForecastProvider fp : user.getForecastProviders()) {
             forecastProviders.add(fp.getProviderId());
         }
-
-        UserDTO dto = new UserDTO(user.getId(), user.getName(), user.getLocationId(), forecastProviders);
-        return dto;
+        return new UserDTO(user.getId(), user.getName(), user.getLocationId(), forecastProviders);
     }
 
     @GET
+    @Counted(name = "performChecks", description = "a description")
+    @Timed(name = "checksTimer", unit = MetricUnits.MILLISECONDS)
     public List<User> getUserById() {
         return userRepository.findAll().stream().toList();
     }
