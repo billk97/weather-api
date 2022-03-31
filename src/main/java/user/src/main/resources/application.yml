@@ -1,9 +1,9 @@
 server:
   api-prefix: /api
 
-
-forecast-api/mp-rest/url: "http://localhost:5000"
-forecast-provider-api/mp-rest/url: "http://localhost:5200"
+user-api/mp-rest/url: "http://users-service:5100"
+forecast-provider-api/mp-rest/url: "http://forecast-pro-service:5200"
+forecast-api/mp-rest/url: "http://forecast-service:5000"
 
 quarkus:
   http:
